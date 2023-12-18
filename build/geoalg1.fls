@@ -1,22 +1,24 @@
-PWD c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica
+PWD c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica
 INPUT C:\Users\iakim\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\geoalg1.tex
-OUTPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.log
+INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\geoalg1.tex
+OUTPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.log
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
-INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\blindtext\blindtext.sty
-INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\blindtext\blindtext.sty
-INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\tools\xspace.sty
-INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\tools\xspace.sty
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux
-INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux
-INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux
-OUTPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux
+INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux
+INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux
+INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux
+OUTPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
@@ -27,16 +29,69 @@ INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy8.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-OUTPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.pdf
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm10.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm5.tfm
+OUTPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.pdf
 INPUT C:\Users\iakim\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
+INPUT c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eufm10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eufm10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
+INPUT C:\Users\iakim\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb

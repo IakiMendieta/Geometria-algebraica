@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.17)  18 DEC 2023 02:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.17)  18 DEC 2023 04:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/iakim/OneDrive/Escritorio/Geometria algebraica/geoalg1.tex"
-(c:/Users/iakim/OneDrive/Escritorio/Geometria algebraica/geoalg1.tex
+**c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex
+(c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -23,76 +23,85 @@ File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
-Package: blindtext 2012/01/06 V2.0 blindtext-Package
- (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-\c@blindtext=\count193
-\c@Blindtext=\count194
-\c@blind@countparstart=\count195
-\blind@countxx=\count196
-\blindtext@numBlindtext=\count197
-\blind@countyy=\count198
-\c@blindlist=\count199
-\c@blindlistlevel=\count266
-\c@blindlist@level=\count267
-\blind@listitem=\count268
-\c@blind@listcount=\count269
-\c@blind@levelcount=\count270
-\blind@mathformula=\count271
-\blind@Mathformula=\count272
-\c@blind@randomcount=\count273
-\c@blind@randommax=\count274
-\c@blind@pangramcount=\count275
-\c@blind@pangrammax=\count276
-) (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks17
+\thm@bodyfont=\toks18
+\thm@headfont=\toks19
+\thm@notefont=\toks20
+\thm@headpunct=\toks21
+\thm@preskip=\skip50
+\thm@postskip=\skip51
+\thm@headsep=\skip52
+\dth@everypar=\toks22
+) (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks23
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+\c@definicion=\count193
+\c@teorema=\count194
+\c@corolario=\count195
+\c@lema=\count196
+\c@observacion=\count197
+ (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count277
+\l__color_backend_stack_int=\count198
 \l__pdf_internal_box=\box51
-) (c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux)
+) (c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux)
 \openout1 = `geoalg1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 9.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 9.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 9.
- [1
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+ (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+ (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+euf on input line 18.
+ (C:\Users\iakim\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [1
 
-{C:/Users/iakim/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.aux)
+{C:/Users/iakim/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] (c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 662 strings out of 475248
- 12977 string characters out of 5757812
- 1918785 words of memory out of 5000000
- 22247 multiletter control sequences out of 15000+600000
- 561709 words of font info for 48 fonts, out of 8000000 for 9000
+ 1181 strings out of 475248
+ 18169 string characters out of 5757812
+ 1925785 words of memory out of 5000000
+ 22739 multiletter control sequences out of 15000+600000
+ 567298 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,51p,206b,197s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "c:\Users\iakim\OneDrive\Escritorio\Geometria algebraica\build\geoalg1.pdf" (1 page, 46867 bytes).
+ 41i,8n,51p,250b,247s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg1.pdf (2 pages, 148886 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

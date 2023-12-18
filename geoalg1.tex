@@ -1,14 +1,84 @@
 \documentclass{article}
-\usepackage{blindtext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{lema}{Lema}
+\newtheorem{observacion}{Observacion}
 
-\title{Sections and Chapters}
-\author{Overleaf}
+\title{Espectro de un anillo}
+\author{Levia MN}
 \date{\today}
 
 \begin{document}
 \maketitle
-\section{Introduction}
+\section{Topología}
+\begin{definicion}
+    Sea A un anillo denotamos $$Spec(A)=\{\mathfrak{p} \subset A; \mathfrak{p} \mbox{ es un ideal primo} \}$$
+    Si $M \subset A$ entonces denotamos $$V(M) = \{\mathfrak{p} \in A; M \subset \mathfrak{p}\}$$
+    Si $M=\{f\}$ entonces escribimos $V(f)$.
+\end{definicion}
 
-This is the first section.
+\begin{observacion}
+    Si $\mathfrak{a}$ es el ideal generado por $M \subset A$ entonces
+    $$V(M) = V(\mathfrak{a})$$
+\end{observacion}
+
+\begin{proof}
+    Si $M \subset \mathfrak{p}$ como $\mathfrak{a}$ es el minimo
+    ideal que contiene a $M$ entonces $\mathfrak{a} \subset \mathfrak{p}$
+    por lo que $V(M) \subset V(\mathfrak{a})$.
+    \\
+    Por otro lado si $\mathfrak{a} \subset \mathfrak{p}$ como
+    $M \subset \mathfrak{a}$ entonces $M \subset \mathfrak{p}$
+    por lo que $V(\mathfrak{a}) \subset V(M)$
+    \\
+    $\therefore V(M) = V(\mathfrak{a})$
+\end{proof}
+
+\begin{lema}
+    \begin{enumerate}
+        \item Si $\mathfrak{a} \subset \mathfrak{b}$ entonces $V(\mathfrak{b}) \subset V(\mathfrak{a})$
+        \item $V(0)=Spec(A)$ y $V(1)=\varnothing$
+        \item Si $\{\mathfrak{a}_{i} \subset A ; i\in I\}$ es una familia de ideales de A,
+        entonces $$V(\bigcup_{i\in I} \mathfrak{a}_i) = V(\sum_{i\in I}\mathfrak{a}_i) = 
+        \bigcap_{i\in I} V(\mathfrak{a}_i)$$
+        \item Si $\mathfrak{a}$ y $\mathfrak{b}$ son ideales de A, entonces
+        $$V(\mathfrak{a}\cap \mathfrak{b}) = V(\mathfrak{a} \mathfrak{b}) = V(\mathfrak{a})\cup V(\mathfrak{b}) $$
+    \end{enumerate}
+\end{lema}
+\begin{proof}
+    \begin{enumerate}
+        \item Si $\mathfrak{b} \subset \mathfrak{p}$ entonces $\mathfrak{a} \subset \mathfrak{p}$
+    
+        \item Para cualquier $\mathfrak{p} \in Spec(A)$ se cumple que $0 \in \mathfrak{p}$
+        $$\therefore V(0)=Spec(A)$$
+        \\
+        Para cualquier $\mathfrak{p} \in Spec(A)$ se cumple que $1 \notin \mathfrak{p}$
+        $$\therefore V(1)=\varnothing$$
+
+        \item Por la observación se sigue la primer igualdad, para la segunda 
+        Dado $j\in I $ 
+        $$\mathfrak{a}_j \subset \bigcup_{i\in I} \mathfrak{a}_i$$ así que por 1.
+        $V(\bigcup_{i\in I}\mathfrak{a}_i) \subset V(\mathfrak{a}_j)$
+        $$\therefore V(\bigcup_{i\in I}\mathfrak{a}_i) \subset \bigcap_{i \in I} V(\mathfrak{a}_i)$$
+        \\
+        Por otro lado si $\mathfrak{p} \in \bigcap_{i \in I} V(\mathfrak{a}_i)$ entonces
+        para todo $i\in I$ ocurre que $\mathfrak{a}_i \subset \mathfrak{p}$\\
+        por lo que $\bigcup_{i\in I} \mathfrak{a}_i \subset \mathfrak{p}$
+        $$\therefore \bigcap_{i \in I} V(\mathfrak{a}_i) \subset V(\bigcup_{i\in I}\mathfrak{a}_i)$$
+
+        
+        \item Como $\mathfrak{a} \mathfrak{b} \subset \mathfrak{a}\cap \mathfrak{b}\subset \mathfrak{a}, \mathfrak{b}$ entonces por 1.
+        $$V(\mathfrak{a}) \cup V(\mathbf{b}) \subset V(\mathfrak{a}\cap \mathfrak{b}) \subset V(\mathfrak{a} \mathfrak{b})$$
+        Si $\mathfrak{p} \in V(\mathfrak{a} \mathfrak{b})$ y $\mathfrak{p}\notin V(\mathfrak{a})$ entonces $\mathfrak{a} \not\subset \mathfrak{p}$,
+        es decir, existe $a\in \mathfrak{a} \setminus \mathfrak{p}$ pero para toda $b \in \mathfrak{b}$ ocurre que
+        $ab \in \mathfrak{a} \mathfrak{b} \subset \mathfrak{p}$ y como $\mathfrak{p}$ es in ideal primo $b \in \mathfrak{p}$
+        $$\therefore \mathfrak{b} \subset \mathfrak{p}$$ i.e. $\mathfrak{p} \in V(\mathfrak{b})$
+        $$\therefore V(\mathfrak{a} \mathfrak{b}) \subset V(\mathfrak{a}) \cup V(\mathfrak{b})$$
+        Lo que prueba la igualdad entre los tres términos.
+    \end{enumerate}
+\end{proof}
 
 \end{document}
