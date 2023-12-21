@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage[spanish, english]{babel}
+\selectlanguage{spanish}
 \newtheorem{definicion}{Definición}
 \newtheorem{teorema}{Teorema}
 \newtheorem{corolario}{Corolario}
@@ -86,4 +88,115 @@
     forman los cerrados de una topología sobre $Spec(A)$
 \end{observacion}
 
+Por otro lado vamos a definir el otro lado de la conección de 
+Galois que nos gustaría crear.
+
+\begin{definicion}
+    Sea $Y \subset Spec(A)$ definimos
+    $$I(Y) = \bigcap_{\mathfrak{p}\in Y} \mathfrak{p}$$
+    Y definiremos $I(\varnothing) = A$
+\end{definicion}
+
+Probemos un lema técnico
+\begin{lema}
+    Sea $J \subset A$ un ideal entonces
+    $rad(J) = \bigcap_{J \subset\mathfrak{p}} \mathfrak{p}$.
+    Con $\mathfrak{p} \in Spec(A)$
+\end{lema}
+\begin{proof}
+    Por un lado si $a \in rad(J)$ entonces existe $n\in \mathbb{N}$
+    tal que $a^n \in J$ Asi que dado $\mathfrak{p}\in Spec(A)$ tal que
+    $J \subset \mathfrak{p}$ se tiene que $a^n \in \mathfrak{p}$ y 
+    es un ideal primo se sigue que $a \in \mathfrak{p}$
+    $$\therefore rad(J)\subset \bigcap_{J\subset \mathfrak{p}} \mathfrak{p}$$
+    \\
+    Por otro lado sea $a\in \bigcap_{J\subset \mathfrak{p}} \mathfrak{p}$ y
+    supongamos que $a \notin rad(J)$ entonces para cualquier $n \in \mathbb{N}$
+    ocurre que $a^n \notin J$ 
+    $$\therefore \mathcal{F} = \{I\subset A; 
+    \mbox{ I es un ideal, } J\subset I, \quad 
+    \forall n\in \mathbb{N}, a^n \notin I\} \neq \varnothing$$
+    pues $rad(J) \in \mathcal{F}$ y además esta familia 
+    esta ordenada por la contención así que por principio 
+    de maximalidad de Hausdorff existe $\mathfrak{q} \in \mathcal{F}$
+    maximal tal que $rad(J) \subset \mathfrak{q}$.\\
+    Veamos que $\mathfrak{q} \in Spec(A)$, en efecto,
+    si $xy \in \mathfrak{q}$ y además se tuviera que $x,y\notin\mathfrak{q}$
+    entonces $\mathfrak{q}\subset \mathfrak{q}+ \langle x \rangle, \mathfrak{q}+ \langle y \rangle$
+    y por la maximalidad de $\mathfrak{q}$ se tiene que 
+    $\mathfrak{q}+ \langle x \rangle, \mathfrak{q}+ \langle y \rangle \notin \mathcal{F}$
+    por lo que existen $n, m \in \mathbb{N}$ tales que 
+    $a^n \mathfrak{q}+ \langle x \rangle$ y $a^m \in\mathfrak{q}+ \langle y \rangle$
+    ya que $J \subset \mathfrak{q} \subset \mathfrak{q}+ \langle x \rangle, \mathfrak{q}+ \langle y \rangle$
+    Por lo que $a^n = q_1 + r_1x$ y $a^m = q_2 + r_2 y$ con $q_1, q_2 \in \mathfrak{q}$
+    y $r_1, r_2 \in A$
+    $$a^{n+m} = (q_1+r_1x)(q_2+r_2y) = q_1q_2 + q_1r_2y + q_2r_1x + r_1r_2xy \in \mathfrak{q}$$
+    pues cada termino esta en $\mathfrak{q}$
+    lo cual es una contradicción y por ende $\mathfrak{q}$ es un ideal 
+    primo, es decir, $\mathfrak{q} \in Spec(A)$.
+    Por lo que $a \in \bigcap_{J\subset \mathfrak{p}} \mathfrak{p},
+    \subset \mathfrak{q}$  pues $\mathfrak{p} \in Spec(A)$
+    lo cual es una contradicción pues $\mathfrak{q}\in \mathcal{F}$.
+    Esta contradicción vino de suponer que $a\notin rad(J)$ por lo que 
+    $a \in rad(J)$.
+    $$\therefore \bigcap_{J\subset \mathfrak{p}} \mathfrak{p} \subset rad(J)$$
+    Lo cual da la igual que buscabamos.
+
+\end{proof}
+
+Además tenemos los siguientes resultados
+
+\begin{lema}
+    \begin{enumerate}
+    \item Si $Y \subset X$ entonces $I(X) \subset I(Y)$
+    \item $rad(I(Y)) = I(Y)$
+    \item $I(V(\mathfrak{a})) = rad(\mathfrak{a}) $
+    y $V(I(Y)) = cl(Y)$ donde cl es la cerradura en Spec(A)
+    \end{enumerate}
+\end{lema}
+\begin{proof}
+    \begin{enumerate}
+        \item Si $p \in I(X) = \bigcap_{\mathfrak{p}\in X}\mathfrak{p}$
+        entonces, para todo $\mathfrak{p}\in X$, se tiene que $p\in \mathfrak{p}$,
+        como $Y \subset X$ entonces en particular para todo $\mathfrak{p}\in Y$
+        ocurre que $p \in \mathfrak{p}$.
+        $$\therefore I(X) \subset I(Y)$$
+        \item Siempre ocurre que $I(Y)\subset rad(I(Y))$, y por otro lado
+        si $a \in rad(I(Y))$ entonces existe $n\in \mathbb{N}$ tal que $a^n \in I(Y)$
+        por lo que $a^n \in \mathfrak{p}$ para cualquier $\mathbf{p}\in Y$. 
+        Como cada uno de estos ideales es primo entonces $a \in \mathfrak{p}$ para cualquier 
+        $\mathfrak{p}\in Y$.
+        $$\therefore rad(I(Y)) \subset I(Y)$$
+        Lo que prueba la igualdad
+        \item Para lo primero notemos que
+        $$I(V(\mathfrak{a}))=\bigcap_{\mathfrak{p}\in V(\mathfrak{a})} \mathfrak{p}
+        = \bigcap_{\mathfrak{a}\subset \mathfrak{p}} \mathfrak{p}
+        = rad(\mathfrak{a})$$
+        Por el lema previo.
+        \\
+        Por otro lado observemos que $V(I(Y))$ es un cerrado de $Spec(A)$
+        Además dado $y\in Y$ entonces $I(Y) = \bigcap_{\mathfrak{p}\in Y} \mathfrak{p}
+        \subset y $ por lo que $y \in V(y) \subset (V(I(Y)))$
+        $$\therefore Y\subset V(I(Y))$$
+        Además si tenemos $V(J)$ un cerrado tal que $Y \subset V(J)$ entonces
+        $J \subset y$ para cualquier $y \in Y$ por lo que $J \subset \bigcap_{y \in Y} y = I(Y)$
+        asi que $V(I(Y)) \subset V(J)$.
+        Lo que lo hace el cerrado más pequeño en contener a $Y$, es decir,
+        su cerrad.
+        $$\therefore V(I(Y)) = cl(Y)$$
+    \end{enumerate}
+\end{proof}
+
+\begin{observacion}
+    Sean $\mathcal{A} = \{I \subset A; \mbox{ I es un idel radical de A}\}$
+    y $\mathcal{B} = \{Y \subset Spec(A); \mbox{ Y es un cerrado de Spec(A)}\}$.\\
+    La prueba anterior nos dice que $V:\mathcal{A} \rightarrow \mathcal{B}$ y 
+    $I: \mathcal{B} \rightarrow \mathcal{A}$ son inversas una de otra y por ende
+    biyecciones entre $\mathcal{A}$ y $\mathcal{B}$.
+\end{observacion}
+
+\begin{observacion}
+    Si $x\in Spec(A)$ entonces $I({x})=x$, por lo que
+    $$V(x)=V(I(\{x\}))=cl(\{x\})$$
+\end{observacion}
 \end{document}
