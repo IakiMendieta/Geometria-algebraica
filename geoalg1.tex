@@ -1,7 +1,8 @@
 \documentclass{article}
 \usepackage{amsthm}
+\usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[spanish, english]{babel}
+\usepackage[spanish]{babel}
 \selectlanguage{spanish}
 \newtheorem{definicion}{Definición}
 \newtheorem{teorema}{Teorema}
@@ -199,4 +200,79 @@ Además tenemos los siguientes resultados
     Si $x\in Spec(A)$ entonces $I({x})=x$, por lo que
     $$V(x)=V(I(\{x\}))=cl(\{x\})$$
 \end{observacion}
+
+\begin{lema}
+    Si $I, J \subset A$ son ideales de A, entonces 
+    $I \subset rad(J)$ si y solo si $rad(I)\subset rad(J)$
+\end{lema}
+\begin{proof}
+    $\implies$ Supongamos que $I \subset rad(J)$ y sea $a \in rad(I)$,
+    entonces existe $n \in \mathbb{N}$ tal que $a^n \in I$ por lo que 
+    $a^n \in rad(J) = \bigcap_{J\subset \mathfrak{p}}\mathfrak{p}$ donde $\mathfrak{p}\in Spec(A)$
+    asi que para todo $\mathfrak{p} \in Spec(A)$ tal que $J\subset \mathfrak{p}$
+    se tiene que $a^n \in \mathfrak{p}$ y como cada uno es un ideal primo
+    $a\in \mathfrak{p}$.
+    $$\therefore a \in \bigcap_{I\subset \mathfrak{p}}\mathfrak{p} = rad(J)$$
+    Concluimos que $rad(I) \subset rad(J)$.\\
+    $\impliedby$ Supongamos que $rad(I)\subset rad(J)$ entonces como 
+    $I\subset rad(I)$ se sigue lo que queriamos.
+\end{proof}
+
+\begin{corolario}
+    Sea $g \in A$ y $I, J \subset A$ un ideales de A,
+    entonces $V(I) \subset V(J)$ si y solo si $rad(J)= \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p}\subset \bigcap_{\mathfrak{p}\in V(I)}\mathfrak{p} =rad(I)$
+    en particular para $V(g)$, $V(I) \subset V(g)$ si y solo si  $\{g\} \subset rad(I)$
+    si y solo si $g \in rad(I)$.
+
+\end{corolario}
+
+
+\begin{definicion}
+    Sea $f\in A$ definimos
+    $$D(f) = Spec(A) \setminus V(f)$$
+    y notamos que es un abierto, a los abiertos de 
+    este tipo se les llama abiertos principales.
+\end{definicion}
+
+\begin{observacion}
+    Notemos los siguientes hechos $D(0)=\varnothing$,
+    $D(1)=Spec(A)$ y como dado $\mathfrak{p} \in Spec(A)$ se cumple
+    que $fg \notin \mathfrak{p}$ si y solo $f,g \notin \mathfrak{p}$
+    pues $\mathfrak{p}$ es primo, por lo que $D(fg)= D(f)\cap D(g)$
+\end{observacion}
+
+\begin{lema}
+    Sean $\{f_i; i\in \Lambda\} \subset A$ y $g \in A$,
+    entonces $D(g)\subset \bigcup_{i\in \Lambda}D(f_i) $ si y solo si
+    $g \in rad(\sum_{i\in I} \langle f_i \rangle)$
+\end{lema}
+
+\begin{proof}
+    $$D(g) \subset \bigcup_{i\in \Lambda}D(f_i) = \bigcup_{i\in  \Lambda} Spec(A)\setminus V(f_i)
+    = Spec(A)\setminus (\bigcap_{i\in  \Lambda}V(f_i)) $$
+    Y como $\bigcap_{i\in  \Lambda}V(f_i) = V(\sum_{i\in \Lambda}\langle f_i \rangle)$
+    entonces $$Spec(A)\setminus (\bigcap_{i\in  \Lambda}V(f_i)) = Spec(A)\setminus V(\sum_{i\in \Lambda}\langle f_i \rangle)$$
+    por lo que $D(g)\subset \bigcup_{i \in \Lambda}D(f_i)$ si y solo si
+    $$V(\sum_{i\in \Lambda}\langle f_i \rangle) \subset V(g)$$
+    y por corolario y lema previos se sigue que esto ocurre si y solo si
+    $$g \in rad(\sum_{i\in \Lambda}\langle f_i \rangle)$$
+\end{proof}
+
+\begin{observacion}
+    En particular aplicando el lema anterior a 
+    $g = 1$ entonces $\{D(f_i)\; i\in \Lambda\}$ 
+    cubre a $D(1) = Spec(A)$ si y solo si $1 \in rad(\sum_{i\in \Lambda} \langle f_i \rangle)$
+    y esto es si y solo si $1\in \sum_{i\in \Lambda} \langle f_i \rangle$
+    si y solo si $\langle f_i; i\in \Lambda \rangle = Spec(A)$
+    en particular $1 = \sum_{j=1}^{n} \alpha_j f_{i_j}$ con $n\in \mathbb{N}, \quad \alpha_j \in A \quad y \quad i_j \in \Lambda$.\\
+    Por lo que $\langle f_{i_j}; j\in\{1,...,n \} \rangle = Spec(A)$
+    por lo que $Spec(A) \subset \bigcup_{j=1}^{n}D(f_{i_j})$
+    Por lo que toda cubierta tiene una subcubierta finita.
+\end{observacion}
+
+Hemos probado entonces que 
+
+\begin{corolario}
+    Spec(A) es compacto.
+\end{corolario}
 \end{document}
