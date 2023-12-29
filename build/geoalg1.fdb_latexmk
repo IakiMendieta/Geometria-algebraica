@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1703132340 "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" "build/geoalg1.pdf" "geoalg1" 1703132341 0
+["pdflatex"] 1703835946 "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" "build/geoalg1.pdf" "geoalg1" 1703835947 0
   "C:/Users/iakim/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1702889437 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/iakim/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1702877147 24141909 d26e8ea7a0f158b4114daadb8c7b2ad7 ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -66,9 +66,9 @@
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1687174146 20144 fbcf51733730d8f1a62143512ff5b1fe ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1687174146 8448 74078c4a887f2cdcd57c3ec111622740 ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1681896761 29940 9473d58112bc8a88f5505b823a053dde ""
-  "build/geoalg1.aux" 1703132341 314 9e4de32a29a2592a0ec58297666692a4 "pdflatex"
-  "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" 1703132339 13183 9f8929e76a2b1af8e806a79153438689 ""
-  "geoalg1.tex" 1703132339 13183 9f8929e76a2b1af8e806a79153438689 ""
+  "build/geoalg1.aux" 1703835947 314 fcb8d153c5995a5e4d0553f211a66acd "pdflatex"
+  "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" 1703835946 18338 5506a79bccbd1b1440705893ee7d7ecb ""
+  "geoalg1.tex" 1703835946 18338 5506a79bccbd1b1440705893ee7d7ecb ""
   (generated)
   "build/geoalg1.aux"
   "build/geoalg1.log"
