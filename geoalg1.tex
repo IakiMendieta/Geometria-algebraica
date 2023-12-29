@@ -4,8 +4,10 @@
 \usepackage{amssymb}
 \usepackage{xcolor}
 \usepackage{blindtext}
+\usepackage{tikz-page}
 \usepackage{tikz,tkz-tab,amsmath}
 \usepackage{tcolorbox}
+\usetikzlibrary{shadows.blur}
 \usepackage[spanish]{babel}
 
 \selectlanguage{spanish}
@@ -24,6 +26,35 @@
 {colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ob}
 \newtcbtheorem[number within=section]{ejemplo}{ejemplo}%
 {colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ej}
+
+\tikzset{
+        secnode/.style={
+                minimum height=1cm,
+                inner xsep=20pt,
+                rotate=90,
+                anchor=north east,
+                draw=white,
+                fill=black!60!green,
+                text=white,
+                blur shadow={shadow blur steps=5,shadow blur extra rounding=1.3pt}},
+        pagenode/.style={
+                minimum width=5mm,
+                minimum height=1cm,
+                inner sep=2pt,
+                anchor=south east,
+                draw=white,
+                fill=black!60!green,
+                text=white,
+                blur shadow={shadow blur steps=5,shadow blur extra rounding=1.3pt}}
+        }
+\newcommand{\tikzpagelayout}{
+        \draw[black!60!green,line width=2pt,rounded corners=20pt] ([xshift=5mm]page.northwest) |- ([xshift=-2cm,yshift=5mm]page.southeast);
+        \node[secnode] at (page.northwest) {Geometría algebraica};
+        \node[pagenode] at ([xshift=-1cm]page.southeast) {1};
+      }
+        
+\pagestyle{plain}
+
 
 \title{Espectro de un anillo}
 \author{Levia MN}
