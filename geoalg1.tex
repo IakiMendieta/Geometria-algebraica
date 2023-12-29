@@ -2,14 +2,28 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{blindtext}
+\usepackage{tikz,tkz-tab,amsmath}
+\usepackage{tcolorbox}
 \usepackage[spanish]{babel}
+
 \selectlanguage{spanish}
-\newtheorem{definition}{Definición}
-\newtheorem{theorem}{Teorema}
-\newtheorem{corollary}{Corolario}
-\newtheorem{lemma}{Lema}
-\newtheorem{observation}{Observacion}
-\newtheorem{proposition}{Proposición}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{teorema}{Teorema}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{proposicion}{Proposición}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{pr}
+\newtcbtheorem[number within=section]{corolario}{Corolario}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{cr}
+\newtcbtheorem[number within=section]{lema}{Lema}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{lm}
+\newtcbtheorem[number within=section]{definicion}{Definición}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{df}
+\newtcbtheorem[number within=section]{observacion}{Observación}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ob}
+\newtcbtheorem[number within=section]{ejemplo}{ejemplo}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ej}
 
 \title{Espectro de un anillo}
 \author{Levia MN}
@@ -18,17 +32,19 @@
 \begin{document}
 \maketitle
 \section{Topología}
-\begin{definition}
-    Sea A un anillo denotamos $$Spec(A)=\{\mathfrak{p} \subset A; \mathfrak{p} \mbox{ es un ideal primo} \}$$
-    Si $M \subset A$ entonces denotamos $$V(M) = \{\mathfrak{p} \in A; M \subset \mathfrak{p}\}$$
-    Si $M=\{f\}$ entonces escribimos $V(f)$.
-\end{definition}
 
-\begin{observation}
+\begin{definicion}{Espectro de un anillo.}{}
+    Sea A un anillo denotamos 
+    $$Spec(A)=\{\mathfrak{p} \subset A \mid \mathfrak{p} \mbox{ es un ideal primo} \}$$
+    Si $M \subset A$ entonces denotamos 
+    $$V(M) = \{\mathfrak{p} \in A \mid M \subset \mathfrak{p}\}$$
+    Si $M=\{f\}$ entonces escribimos $V(f)$.
+\end{definicion}
+
+\begin{observacion}{}{}
     Si $\mathfrak{a}$ es el ideal generado por $M \subset A$ entonces
     $$V(M) = V(\mathfrak{a})$$
-\end{observation}
-
+\end{observacion}
 \begin{proof}
     Si $M \subset \mathfrak{p}$ como $\mathfrak{a}$ es el minimo
     ideal que contiene a $M$ entonces $\mathfrak{a} \subset \mathfrak{p}$
@@ -41,17 +57,18 @@
     $\therefore V(M) = V(\mathfrak{a})$
 \end{proof}
 
-\begin{lemma}
+\begin{lema}{}{}
     \begin{enumerate}
         \item Si $\mathfrak{a} \subset \mathfrak{b}$ entonces $V(\mathfrak{b}) \subset V(\mathfrak{a})$
         \item $V(0)=Spec(A)$ y $V(1)=\varnothing$
-        \item Si $\{\mathfrak{a}_{i} \subset A ; i\in I\}$ es una familia de ideales de A,
-        entonces $$V(\bigcup_{i\in I} \mathfrak{a}_i) = V(\sum_{i\in I}\mathfrak{a}_i) = 
-        \bigcap_{i\in I} V(\mathfrak{a}_i)$$
+        \item Si $\{\mathfrak{a}_{i} \subset A ; i\in I\}$ es una familia de ideales de A, entonces 
+        $$V\left( \bigcup_{i\in I} \mathfrak{a}_i\right) 
+        = V\left( \sum_{i\in I}\mathfrak{a}_i\right) 
+        = \bigcap_{i\in I} V(\mathfrak{a}_i)$$
         \item Si $\mathfrak{a}$ y $\mathfrak{b}$ son ideales de A, entonces
         $$V(\mathfrak{a}\cap \mathfrak{b}) = V(\mathfrak{a} \mathfrak{b}) = V(\mathfrak{a})\cup V(\mathfrak{b}) $$
     \end{enumerate}
-\end{lemma}
+\end{lema}
 \begin{proof}
     \begin{enumerate}
         \item Si $\mathfrak{b} \subset \mathfrak{p}$ entonces $\mathfrak{a} \subset \mathfrak{p}$
@@ -85,37 +102,36 @@
     \end{enumerate}
 \end{proof}
 
-\begin{observation}
-    El lemma anterior prueba que $\{V(\mathfrak{a}); \mathfrak{a} \subset A \mbox{ es in ideal}\}$
+\begin{observacion}{}{}
+    El lema anterior prueba que $\{V(\mathfrak{a}); \mathfrak{a} \subset A \mbox{ es in ideal}\}$
     forman los cerrados de una topología sobre $Spec(A)$
-\end{observation}
+\end{observacion}
 
 Por otro lado vamos a definir el otro lado de la conección de 
 Galois que nos gustaría crear.
 
-\begin{definition}
+\begin{definicion}{Ideal asociado}{}
     Sea $Y \subset Spec(A)$ definimos
     $$I(Y) = \bigcap_{\mathfrak{p}\in Y} \mathfrak{p}$$
     Y definiremos $I(\varnothing) = A$
-\end{definition}
+\end{definicion}
 
 Probemos un lemma técnico
-\begin{lemma}
+\begin{lema}{}{}
     Sea $J \subset A$ un ideal entonces
-    $rad(J) = \bigcap_{J \subset\mathfrak{p}} \mathfrak{p}$.
-    Con $\mathfrak{p} \in Spec(A)$
-\end{lemma}
+    $rad(J) = \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p}$.
+\end{lema}
 \begin{proof}
     Por un lado si $a \in rad(J)$ entonces existe $n\in \mathbb{N}$
     tal que $a^n \in J$ Asi que dado $\mathfrak{p}\in Spec(A)$ tal que
     $J \subset \mathfrak{p}$ se tiene que $a^n \in \mathfrak{p}$ y 
     es un ideal primo se sigue que $a \in \mathfrak{p}$
-    $$\therefore rad(J)\subset \bigcap_{J\subset \mathfrak{p}} \mathfrak{p}$$
+    $$\therefore rad(J)\subset \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p}$$
     \\
-    Por otro lado sea $a\in \bigcap_{J\subset \mathfrak{p}} \mathfrak{p}$ y
+    Por otro lado sea $a\in \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p}$ y
     supongamos que $a \notin rad(J)$ entonces para cualquier $n \in \mathbb{N}$
     ocurre que $a^n \notin J$ 
-    $$\therefore \mathcal{F} = \{I\subset A; 
+    $$\therefore \mathcal{F} = \{I\subset A \mid 
     \mbox{ I es un ideal, } J\subset I, \quad 
     \forall n\in \mathbb{N}, a^n \notin I\} \neq \varnothing$$
     pues $rad(J) \in \mathcal{F}$ y además esta familia 
@@ -133,29 +149,28 @@ Probemos un lemma técnico
     Por lo que $a^n = q_1 + r_1x$ y $a^m = q_2 + r_2 y$ con $q_1, q_2 \in \mathfrak{q}$
     y $r_1, r_2 \in A$
     $$a^{n+m} = (q_1+r_1x)(q_2+r_2y) = q_1q_2 + q_1r_2y + q_2r_1x + r_1r_2xy \in \mathfrak{q}$$
-    pues cada termino esta en $\mathfrak{q}$
+    pues cada término esta en $\mathfrak{q}$
     lo cual es una contradicción y por ende $\mathfrak{q}$ es un ideal 
     primo, es decir, $\mathfrak{q} \in Spec(A)$.
-    Por lo que $a \in \bigcap_{J\subset \mathfrak{p}} \mathfrak{p},
+    Por lo que $a \in \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p},
     \subset \mathfrak{q}$  pues $\mathfrak{p} \in Spec(A)$
     lo cual es una contradicción pues $\mathfrak{q}\in \mathcal{F}$.
     Esta contradicción vino de suponer que $a\notin rad(J)$ por lo que 
     $a \in rad(J)$.
-    $$\therefore \bigcap_{J\subset \mathfrak{p}} \mathfrak{p} \subset rad(J)$$
+    $$\therefore \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p} \subset rad(J)$$
     Lo cual da la igual que buscabamos.
-
 \end{proof}
 
 Además tenemos los siguientes resultados
 
-\begin{lemma}
+\begin{lema}{}{}
     \begin{enumerate}
-    \item Si $Y \subset X$ entonces $I(X) \subset I(Y)$
-    \item $rad(I(Y)) = I(Y)$
-    \item $I(V(\mathfrak{a})) = rad(\mathfrak{a}) $
-    y $V(I(Y)) = cl(Y)$ donde cl es la cerradura en Spec(A)
-    \end{enumerate}
-\end{lemma}
+        \item Si $Y \subset X$ entonces $I(X) \subset I(Y)$
+        \item $rad(I(Y)) = I(Y)$
+        \item $I(V(\mathfrak{a})) = rad(\mathfrak{a}) $
+        y $V(I(Y)) = cl(Y)$ donde cl es la cerradura en Spec(A)
+        \end{enumerate}
+\end{lema}
 \begin{proof}
     \begin{enumerate}
         \item Si $p \in I(X) = \bigcap_{\mathfrak{p}\in X}\mathfrak{p}$
@@ -189,23 +204,30 @@ Además tenemos los siguientes resultados
     \end{enumerate}
 \end{proof}
 
-\begin{observation}
-    Sean $\mathcal{A} = \{I \subset A; \mbox{ I es un idel radical de A}\}$
-    y $\mathcal{B} = \{Y \subset Spec(A); \mbox{ Y es un cerrado de Spec(A)}\}$.\\
+\begin{observacion}{}{}
+    Sean 
+    \begin{align*}
+        &\mathcal{A} = \{I \subset A; \mbox{ I es un idel radical de A}\}\\
+        &\mathcal{B} = \{Y \subset Spec(A); \mbox{ Y es un cerrado de Spec(A)}\}
+    \end{align*}
     La prueba anterior nos dice que $V:\mathcal{A} \rightarrow \mathcal{B}$ y 
     $I: \mathcal{B} \rightarrow \mathcal{A}$ son inversas una de otra y por ende
     biyecciones entre $\mathcal{A}$ y $\mathcal{B}$.
-\end{observation}
+\end{observacion}
 
-\begin{observation}
-    Si $x\in Spec(A)$ entonces $I({x})=x$, por lo que
-    $$V(x)=V(I(\{x\}))=cl(\{x\})$$
-\end{observation}
+\begin{observacion}{}{}
+    Si $\mathfrak{p}\in Spec(A)$ entonces
+    $I({\mathfrak{p}})=\mathfrak{p}$, 
+    por lo que
+    $$V(\mathfrak{p})
+    =V(I(\{\mathfrak{p}\}))
+    =cl(\{\mathfrak{p}\})$$
+\end{observacion}
 
-\begin{lemma}
+\begin{lema}{}{}
     Si $I, J \subset A$ son ideales de A, entonces 
     $I \subset rad(J)$ si y solo si $rad(I)\subset rad(J)$
-\end{lemma}
+\end{lema}
 \begin{proof}
     $\implies$ Supongamos que $I \subset rad(J)$ y sea $a \in rad(I)$,
     entonces existe $n \in \mathbb{N}$ tal que $a^n \in I$ por lo que 
@@ -219,34 +241,45 @@ Además tenemos los siguientes resultados
     $I\subset rad(I)$ se sigue lo que queriamos.
 \end{proof}
 
-\begin{corollary}
+\begin{corolario}{}{rad}
     Sea $g \in A$ y $I, J \subset A$ un ideales de A,
-    entonces $V(I) \subset V(J)$ si y solo si $rad(J)= \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p}\subset \bigcap_{\mathfrak{p}\in V(I)}\mathfrak{p} =rad(I)$
-    en particular para $V(g)$, $V(I) \subset V(g)$ si y solo si  $\{g\} \subset rad(I)$
-    si y solo si $g \in rad(I)$.
+    entonces 
+    \begin{align*}
+        &V(I) \subset V(J) \iff \\
+        &rad(J)= \bigcap_{\mathfrak{p} \in V(J)} \mathfrak{p}\subset \bigcap_{\mathfrak{p}\in V(I)}\mathfrak{p} =rad(I)
+    \end{align*}
+    En particular para $g\in A$
+    \begin{align*}
+        &V(I) \subset V(g) \iff \\ 
+        &\{g\} \subset rad(I) \iff \\
+        &g \in rad(I).
+    \end{align*}
+\end{corolario}
 
-\end{corollary}
-
-
-\begin{definition}
+\begin{definicion}{Abiertos principales}{}
     Sea $f\in A$ definimos
     $$D(f) = Spec(A) \setminus V(f)$$
     y notamos que es un abierto, a los abiertos de 
     este tipo se les llama abiertos principales.
-\end{definition}
+\end{definicion}
 
-\begin{observation}
-    Notemos los siguientes hechos $D(0)=\varnothing$,
-    $D(1)=Spec(A)$ y como dado $\mathfrak{p} \in Spec(A)$ se cumple
-    que $fg \notin \mathfrak{p}$ si y solo $f,g \notin \mathfrak{p}$
-    pues $\mathfrak{p}$ es primo, por lo que $D(fg)= D(f)\cap D(g)$
-\end{observation}
+\begin{observacion}{}{}
+    Notemos los siguientes hechos:
+    \begin{enumerate}
+        \item $D(0)=\varnothing$
+        \item $D(1)=Spec(A)$
+        \item Dado $\mathfrak{p} \in Spec(A)$ se cumple
+        que $fg \notin \mathfrak{p}$ si y solo $f,g \notin \mathfrak{p}$
+        pues $\mathfrak{p}$ es un ideal primo, por lo que $D(fg)= D(f)\cap D(g)$
+    \end{enumerate}
+    
+\end{observacion}
 
-\begin{lemma}
-    Sean $\{f_i; i\in \Lambda\} \subset A$ y $g \in A$,
+\begin{lema}{}{}
+    Sean $\{f_i\mid i\in \Lambda\} \subset A$ y $g \in A$,
     entonces $D(g)\subset \bigcup_{i\in \Lambda}D(f_i) $ si y solo si
     $g \in rad \left( \sum_{i\in I} \langle f_i \rangle\right)$
-\end{lemma}
+\end{lema}
 \begin{proof}
     $$D(g) \subset \bigcup_{i\in \Lambda}D(f_i) = \bigcup_{i\in  \Lambda} Spec(A)\setminus V(f_i)
     = Spec(A)\setminus \left( \bigcap_{i\in  \Lambda}V(f_i)\right) $$
@@ -254,33 +287,36 @@ Además tenemos los siguientes resultados
     entonces $$Spec(A)\setminus \left(\bigcap_{i\in  \Lambda}V(f_i) \right) = Spec(A)\setminus V\left(\sum_{i\in \Lambda}\langle f_i \rangle\right)$$
     por lo que $D(g)\subset \bigcup_{i \in \Lambda}D(f_i)$ si y solo si
     $$V\left(\sum_{i\in \Lambda}\langle f_i \rangle \right) \subset V(g)$$
-    y por corollary y lemma previos se sigue que esto ocurre si y solo si
+    y por \ref{cr:rad} esto ocurre si y solo si
     $$g \in rad \left(\sum_{i\in \Lambda}\langle f_i \rangle\right)$$
 \end{proof}
 
-\begin{observation}
+\begin{observacion}{}{}
     En particular aplicando el lemma anterior a 
-    $g = 1$ entonces $\{D(f_i)\; i\in \Lambda\}$ 
-    cubre a $D(1) = Spec(A)$ si y solo si $1 \in rad(\sum_{i\in \Lambda} \langle f_i \rangle)$
-    y esto es si y solo si $1\in \sum_{i\in \Lambda} \langle f_i \rangle$
-    si y solo si $\langle f_i; i\in \Lambda \rangle = A$
+    $g = 1$ entonces:
+    \begin{align}
+        D(1) = Spec(A) \subset \bigcup_{i \in \Lambda } D(f_i) \iff\\
+        1 \in rad(\sum_{i\in \Lambda} \langle f_i \rangle) \iff \\
+        1\in \sum_{i\in \Lambda} \langle f_i \rangle \iff \\
+        \langle f_i \mid i\in \Lambda \rangle = A
+    \end{align} 
     en particular $1 = \sum_{j=1}^{n} \alpha_j f_{i_j}$ con $n\in \mathbb{N}, \quad \alpha_j \in A \quad y \quad i_j \in \Lambda$.\\
-    Por lo que $\langle f_{i_j}; j\in\{1,...,n \} \rangle = A$
-    por lo que $Spec(A) \subset \bigcup_{j=1}^{n}D(f_{i_j})$
+    Por lo que $\langle f_{i_j}\mid j\in\{1,...,n \} \rangle = A$
+    y por ende $Spec(A) \subset \bigcup_{j=1}^{n}D(f_{i_j})$
     Por lo que toda cubierta tiene una subcubierta finita.
-\end{observation}
+\end{observacion}
 
 Hemos probado entonces que 
 
-\begin{corollary}
+\begin{corolario}{}{}
     Spec(A) es compacto.
-\end{corollary}
+\end{corolario}
 
-\begin{proposition}
+\begin{proposicion}{}{}
     Sea A un anillo, entonces
     $\mathcal{B} = \{D(f); f\in A\}$
     es una base para la topología de Spec(A).
-\end{proposition}
+\end{proposicion}
 \begin{proof}
     Sea $U \subset Spec(A)$ un abierto, entonces
     $Spec(A)\setminus U$ es un conjunto cerrado,
@@ -294,40 +330,40 @@ Hemos probado entonces que
     = \bigcup_{f \in I}D(f)$$
 \end{proof}
 
-\begin{proposition}
+\begin{proposicion}{}{}
     Sean $A$ un anillo y $f\in A$, entonces
     $D(f) \subset Spec(A)$ es compacto.
-\end{proposition}
+\end{proposicion}
 \begin{proof}
-    Sea $\mathcal{U}=\{D(g_i); i\in I\}$ una cubierta
+    Sea $\mathcal{U}=\{D(g_i)\mid i\in I\}$ una cubierta
     de $D(f)$ conformada por abiertos básicos.
     Como son una cubierta $D(f) \subset \bigcup_{i \in I}D(g_i)$
-    y por un lema previo se sigue que
+    y por \ref{cr:rad} se sigue que
     $f\in rad\left(\sum_{i\in I}\langle g_i \rangle\right)$.
     Y notemos que
     $$\sum_{i\in I}\langle g_i \rangle
-    = \langle \{g_i;i\in I \} \rangle$$
+    = \langle \{g_i \mid i\in I \} \rangle$$
     Por lo que existe $n \in \mathbb{N}$ tal que
-    $f^n \in \langle\{g_i;i\in I\} \rangle$ asi que
+    $f^n \in \langle\{g_i\mid i\in I\} \rangle$ asi que
     existe $m \in \mathbb{N}$ para la cual se cumple que
     $f^n = \sum_{j=1}^{m} a_j g_{i_j}$ con $a_j \in A$
     e $i_j \in I$ para cada $j \in \{1,\dots,m\}$, en particular,
-    $f^n \in \langle \{g_{i_j};j\in \{1,\dots, m\} \} \rangle$
+    $f^n \in \langle \{g_{i_j}\mid j\in \{1,\dots, m\} \} \rangle$
     por lo que, 
     $f \in rad \left( \sum_{j=1}^{m} \langle g_{i_j} \rangle\right)$
-    y de nuevo por el lema previo se sigue que, 
+    y de nuevo por \ref{cr:rad} se sigue que, 
     $D(f) \subset \bigcup_{j=1}^m D(g_{i_j})$ así que podemos conluir
-    que $\{g_{i_j};j\in\{1,\dots,m\}\} \subset \mathcal{U}$ es una
+    que $\{g_{i_j}\mid j\in\{1,\dots,m\}\} \subset \mathcal{U}$ es una
     subcubierta finita.
 \end{proof}
 
-\begin{proposition}
+\begin{proposicion}{}{}
     Sea A un anillo. Un subespacio $Y \subset Spec(A)$
     es irreducible si y solo si $\mathfrak{p} = I(Y)$
     es un ideal primo, es decir, $I(Y) \in Spec(A)$.
     Más aún en este caso $\{\mathfrak{p}\}$ es denso en 
     $cl(Y)$.
-\end{proposition}
+\end{proposicion}
 \begin{proof}
     $\implies$ Supongamos que $Y$ es irreducible y sean 
     $f,g \in A$ tales que $fg \in \mathfrak{p}$, entonces
@@ -345,12 +381,12 @@ Hemos probado entonces que
     es denso en $cl(Y)$.
 \end{proof}
 
-\begin{corollary}
+\begin{corolario}{}{}
     Sea $\mathcal{A} = \{Y\subset Spec(A); \mbox{Y es cerrado e irreducible}\}$,
     entonces 
     $$f:Spec(A) \rightarrow \mathcal{A}$$ 
     dada por $f(\mathfrak{p}) = V(\mathfrak{p}) = cl(\mathfrak{p})$ es una biyección.
-\end{corollary}
+\end{corolario}
 \begin{proof}
     Como $\{\mathfrak{p}\}$ es irreducible entonces
     $f(\mathfrak{p}) = cl(\{\mathfrak{p}\})$ es cerrado e irreducible.
@@ -373,19 +409,21 @@ entonces $Spec(A)$ tendrá mas de una componente irreducible
 por lo que $Spec(A)$ es irreducible si y solo si tiene un único
 ideal primo minimal, de hecho, eso lo hace mínimo.
 
-Un ejemplo concreto de esto podría ser $Spec(\mathbb{Z})$
-Aquí nuestro único ideal minimal (de hecho es mínimo) es 
-$\{0\}$ por lo que $V(0) = Spec(\mathbb{Z})$ es un cerrado
-e irreducible. Más aún sus cerrados irreducibles serán de
-la forma $V(\langle p \rangle)$ con $p \in \mathbb{Z}$ un
-número primo y observemos más 
-$$V(\langle p \rangle) 
-= \{\langle q \rangle; \langle p \rangle
-\subset \langle q\rangle \mbox{ con q primo}\}
-=\{\langle q \rangle; q \mbox{ es primo y divide a } p\}
-=\{\langle p \rangle\}$$
-
+\begin{ejemplo}{}{}
+    Un ejemplo concreto de esto podría ser $Spec(\mathbb{Z})$
+    Aquí nuestro único ideal minimal (de hecho es mínimo) es 
+    $\{0\}$ por lo que $V(0) = Spec(\mathbb{Z})$ es un cerrado
+    e irreducible. Más aún sus cerrados irreducibles serán de
+    la forma $V(\langle p \rangle)$ con $p \in \mathbb{Z}$ un
+    número primo y observemos más
+    \begin{align*}
+        &V(\langle p \rangle)\\ 
+        &= \{\langle q \rangle; \langle p \rangle
+        \subset \langle q\rangle \mbox{ con q primo}\}\\
+        &=\{\langle q \rangle; q \mbox{ es primo y divide a } p\}\\
+        &=\{\langle p \rangle\}
+    \end{align*} 
 Por lo que todos los demás cerrados irreducibles son unitarios.
-
+\end{ejemplo}
 
 \end{document}
