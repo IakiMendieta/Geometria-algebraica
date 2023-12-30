@@ -709,6 +709,26 @@ Probemos antes un lema técnico
     Esto último gracias a la proposición \ref{pr:nilpotentes}.
 \end{proof}
 
+Recordemos un lema de localizaciones
+
+\begin{lema}{}{loc_iny}
+    Sean $A$ un anillo, $S\subset A$ un conjunto multiplicativo
+    y $I\subset S^{-1}A$ es un ideal, entonces
+    $I= S^{-1}i^{-1}(I)$ donde
+    $i:A\rightarrow S^{-1}A$ es el morfismo canónico.
+\end{lema}
+\begin{proof}
+    \begin{enumerate}
+        \item[$\subset$)] Sea $a/s\in I$ entonces, como $I$ es un ideal, 
+        $i(a)=a/1=(s/1)(a/s)\in I$ asi que $a\in i^{-1}(I)$
+        por lo que $a/s\in S^{-1}i^{-1}(I)$.
+        \item[$\supset$)]Si $a/s\in S^{-1}i^{-1}(I)$ se 
+        tiene que $a\in i^{-1}I$ y entonces $i(a)=a/1\in I$ 
+        y como $I$ es un ideal $a/s=(1/s)(a/1)\in I$
+    \end{enumerate}
+\end{proof}
+
+
 \begin{proposicion}{}{}
     Sea $A$ un anillo
     \begin{enumerate}
@@ -744,35 +764,63 @@ Probemos antes un lema técnico
             &=\{Spec(\varphi)(\mathfrak{q})\mid \mathfrak{q}\in V(\mathfrak{b})\}\\
             &=\{ Spec(\varphi)(\mathfrak{q})\mid \mathfrak{b}\subset \mathfrak{q} \in Spec(B)\}\\
             &=\{\varphi^{-1}(\mathfrak{q})\mid \mathfrak{b}\subset \mathfrak{q}\in Spec(B)\}\\
-            &= \{\varphi^{-1}(\mathfrak{q})\mid \varphi^{-1}(\mathfrak{b}) \subset \varphi^{-1}(\mathfrak{q})\in Spec(B)\}\\
+            &= \{\varphi^{-1}(\mathfrak{q})\mid \varphi^{-1}(\mathfrak{b}) \subset \varphi^{-1}(\mathfrak{q})\in V(\mbox{Ker}(\varphi))\}\\
             &= \{\mathfrak{p}\in V(\mbox{Ker}(\varphi))\mid \varphi^{-1}(\mathfrak{b}) \subset \mathfrak{p}\}\\
             &= V(\mbox{Ker}(\varphi))\cap V(\varphi^{-1}(\mathfrak{b}))
         \end{align*}
         Por lo que $Spec(\varphi)$ es una función cerrada en su imagen.
         Concluimos que $Spec(\varphi)$ es un homeomorfismo en su imagen
-        \item Recordemos que $i:A\rightarrow S^{-1}A$ esta dada por $i(a)=a/1$
-        por lo que $\mbox{Ker}(i)=\{a\in A\mid a/1=0\}= \{a\in A\mid \exists s\in S, sa=0\}$
-        Asi que 
-        $$V(\mbox{Ker}(i))
-        =\{\mathfrak{p}\in Spec(A)\mid \{a\in A\mid \exists s\in S, sa=0\} \subset \mathfrak{p}\}
-        $$
-        Si probamos que $V(\mbox{Ker}(i))=\mathcal{S}$ podemos aplicar el primer inciso y 
-        habremos terminado.
+        \item Recordemos que $i:A\rightarrow S^{-1}A$ esta dada por $i(a)=a/1$ 
+        Primero notemos que dado $\mathfrak{p}\in Spec(S^{-1}A)$ entonces
+        $Spec(i)(\mathfrak{p})\cap S= \varnothing$ pues de lo contrario
+        existiria $s\in S\cap i^{-1}(\mathfrak{p})$, es decir, $i(s)\in \mathfrak{p}$
+        pero $i(s)$ es una unidad de $S^{-1}A$ y entonces $\mathfrak{p}=S^{-1}A$!
+        pero esto no es posible ya que al ser un ideal primo debe ser propio.
+        Asi que $\mbox{Im}(Spec(i))\subset \mathcal{S}$.
+        Probemos la biyectividad.
         \begin{enumerate}
-            \item[$\supset$)] Sea $\mathfrak{p}\in \mathcal{S}$
-            entonces $\mathfrak{p}\cap S = \varnothing$.
-            Si $a\in \mbox{Ker}(i)$ entonces existe $s\in S$ tal que
-            $sa=0\in \mathfrak{p}$ como $\mathfrak{p}$ es un ideal primo 
-            $a\in \mathfrak{p}$ 
-            $$\therefore \mbox{Ker}(i)\subset \mathfrak{p}$$.
-            \item[$\subset$)] Sea $\mathfrak{p}\in Spec(A)$ tal que
-            $\mbox{Ker}(i)\subset \mathfrak{p}$ sean $a/s, a'/s'\in S^{-1}A$
-            tales que $aa'/ss' \in i(\mathfrak{p})$ entonces existe 
-            $p\in \mathfrak{p}$ tal que $p/1= aa'/ss'$ por lo que existe $t\in S$
-            que hace $t(pss'-aa')=0$ entonces $pss'-aa'\in \mbox{Ker}(i)\subset \mathfrak{p}$
-            
-
+            \item[$Sobre$] Sea $\mathfrak{p} \in \mathcal{S}$ y consideremos 
+            $$S^{-1}\mathfrak{p}=\{p/s\mid p\in\mathfrak{p}, s\in S\}$$
+            Como $p/s=1/1\iff \exists t\in S, t(p-s)=0\iff \exists t\in S, tp=ts\in S$
+            entonces como $\mathfrak{p}$ es un ideal $tp\in \mathfrak{p}$ lo cual 
+            contradice la suposición, asi que $1/1 \notin S^{-1}\mathfrak{p}$
+            entonces es un subconjunto propio de $S^{-1}A$. Más aún,
+            si $p_1/s_1, p_2/s_2\in S^{-1}\mathfrak{p}$ entonces
+            $p_1/s_1 + p_2/s2 = (s_2p_1+s_1p_2)/(s_1s_2)\in S^{-1}\mathfrak{p}$
+            y también $(p_1/s_1)(p_2/s_2)= (p_1p_2)/(s_1s_2)\in S^{-1}\mathfrak{p}$
+            pues $\mathfrak{p}$ es un ideal. Finalmente si $a_1/s_1, a_2/b_2 \in S^{-1}A$
+            son tales que $(a_1/b_1)(a_2/b_2)\in S^{-1}\mathfrak{p}$ entonces $a_1a_2\in\mathfrak{p}$
+            por lo que $a_1\in \mathfrak{p}$ o $a_2\in \mathfrak{p}$ por lo tanto,
+            $a_1/b_1 \in S^{-1}\mathfrak{p}$ o $a_2/b_2 \in S^{-1}\mathfrak{p}$, 
+            por lo que $S^{-1}\mathfrak{p}\in Spec(S^{-1}A)$.\\
+            Notemos que 
+            \begin{multline*}
+                Spec(i)(S^{-1}\mathfrak{p})=i^{-1}(S^{-1}\mathfrak{p})\\
+                =\{a\in A\mid i(a)=a/1 \in \mathfrak{p}\}
+                =\{a \in A\mid a\in \mathfrak{p}\} = \mathfrak{p}
+            \end{multline*}
+            Asi que $Spec(i)$ es sobre.
+            \item[Inyectiva]Si $\mathfrak{p}, \mathfrak{q}\in Spec(S^{-1}A)$
+            son tales que $Spec(i)(\mathfrak{p})=Spec(i)(\mathfrak{q})$, es decir,
+            $i^{-1}(\mathfrak{p})= i^{-1}(\mathfrak{q})$ por el lema \ref{lm:loc_iny}
+            se tiene que 
+            $$\mathfrak{p}=S^{-1}i^{-1}(\mathfrak{p})
+            =S^{-1}i^{-1}(\mathfrak{q})=\mathfrak{q}$$.
+            Por lo que $Spec(i)$ es inyectiva.
         \end{enumerate}
+        Y para terminar veamos que es una función cerrada ya que,
+        si $V(\mathfrak{b})\subset Spec(S^{-1}A)$ es un cerrado, entonces:
+        \begin{align*}
+            &Spec(i)(V(\mathfrak{b}))\\
+            &=\{Spec(i)(\mathfrak{q}) \mid \mathfrak{q}\in V(\mathfrak{b})\}\\
+            &=\{i^{-1}(\mathfrak{q})\mid \mathfrak{b}\subset \mathfrak{q}\in Spec(S^{-1}A)\}\\
+            &=\{i^{-1}(\mathfrak{q})\in \mathcal{S}\mid i^{-1}(\mathfrak{b})\subset i^{-1}(\mathfrak{q})\}\\
+            &= \mathcal{S}\cap V(i^{-1}(\mathfrak{b}))
+        \end{align*}
+        Concluimos que $Spec(i)$ es un homeomorfismo entre 
+        $\mathcal{S}$ y $Spec(S^{-1}A)$.
     \end{enumerate}
 \end{proof}
+
+
 \end{document}
