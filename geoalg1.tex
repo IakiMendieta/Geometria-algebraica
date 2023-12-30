@@ -1,31 +1,36 @@
-\documentclass{article}
+\documentclass[14pt]{extarticle}
 \usepackage{amsthm}
-\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{xcolor}
-\usepackage{blindtext}
 \usepackage{tikz-page}
 \usepackage{tikz,tkz-tab,amsmath}
-\usepackage{tcolorbox}
+\usepackage[many]{tcolorbox}
 \usetikzlibrary{shadows.blur}
 \usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+    }
 
 \selectlanguage{spanish}
 \tcbuselibrary{theorems}
 \newtcbtheorem[number within=section]{teorema}{Teorema}%
-{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
 \newtcbtheorem[number within=section]{proposicion}{Proposición}%
-{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{pr}
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{pr}
 \newtcbtheorem[number within=section]{corolario}{Corolario}%
-{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{cr}
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{cr}
 \newtcbtheorem[number within=section]{lema}{Lema}%
-{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{lm}
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{lm}
 \newtcbtheorem[number within=section]{definicion}{Definición}%
-{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{df}
+{breakable,enhanced,colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{df}
 \newtcbtheorem[number within=section]{observacion}{Observación}%
-{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ob}
-\newtcbtheorem[number within=section]{ejemplo}{ejemplo}%
-{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ej}
+{breakable,enhanced,colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ob}
+\newtcbtheorem[number within=section]{ejemplo}{Ejemplo}%
+{breakable,enhanced,colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ej}
 
 \tikzset{
         secnode/.style={
@@ -34,7 +39,7 @@
                 rotate=90,
                 anchor=north east,
                 draw=white,
-                fill=black!60!green,
+                fill=violet,
                 text=white,
                 blur shadow={shadow blur steps=5,shadow blur extra rounding=1.3pt}},
         pagenode/.style={
@@ -43,18 +48,17 @@
                 inner sep=2pt,
                 anchor=south east,
                 draw=white,
-                fill=black!60!green,
+                fill=violet,
                 text=white,
                 blur shadow={shadow blur steps=5,shadow blur extra rounding=1.3pt}}
         }
 \newcommand{\tikzpagelayout}{
-        \draw[black!60!green,line width=2pt,rounded corners=20pt] ([xshift=5mm]page.northwest) |- ([xshift=-2cm,yshift=5mm]page.southeast);
-        \node[secnode] at (page.northwest) {Geometría algebraica};
-        \node[pagenode] at ([xshift=-1cm]page.southeast) {1};
+        \draw[violet,line width=2pt,rounded corners=20pt] ([xshift=5mm]page.northwest) |- ([xshift=-2cm,yshift=5mm]page.southeast);
+        \node[secnode] at (page.northwest) {Geometría algebraica. \thesection};
+        \node[pagenode] at ([xshift=-1cm]page.southeast) {\thepage};
       }
-        
-\pagestyle{plain}
 
+\pagestyle{plain}
 
 \title{Espectro de un anillo}
 \author{Levia MN}
@@ -318,12 +322,12 @@ Además tenemos los siguientes resultados
     entonces $$Spec(A)\setminus \left(\bigcap_{i\in  \Lambda}V(f_i) \right) = Spec(A)\setminus V\left(\sum_{i\in \Lambda}\langle f_i \rangle\right)$$
     por lo que $D(g)\subset \bigcup_{i \in \Lambda}D(f_i)$ si y solo si
     $$V\left(\sum_{i\in \Lambda}\langle f_i \rangle \right) \subset V(g)$$
-    y por \ref{cr:rad} esto ocurre si y solo si
+    y por el lema \ref{cr:rad} esto ocurre si y solo si
     $$g \in rad \left(\sum_{i\in \Lambda}\langle f_i \rangle\right)$$
 \end{proof}
 
 \begin{observacion}{}{}
-    En particular aplicando el lemma anterior a 
+    En particular aplicando el lema \ref{cr:rad} a 
     $g = 1$ entonces:
     \begin{align}
         D(1) = Spec(A) \subset \bigcup_{i \in \Lambda } D(f_i) \iff\\
@@ -369,7 +373,7 @@ Hemos probado entonces que
     Sea $\mathcal{U}=\{D(g_i)\mid i\in I\}$ una cubierta
     de $D(f)$ conformada por abiertos básicos.
     Como son una cubierta $D(f) \subset \bigcup_{i \in I}D(g_i)$
-    y por \ref{cr:rad} se sigue que
+    y por el lema \ref{cr:rad} se sigue que
     $f\in rad\left(\sum_{i\in I}\langle g_i \rangle\right)$.
     Y notemos que
     $$\sum_{i\in I}\langle g_i \rangle
@@ -382,7 +386,7 @@ Hemos probado entonces que
     $f^n \in \langle \{g_{i_j}\mid j\in \{1,\dots, m\} \} \rangle$
     por lo que, 
     $f \in rad \left( \sum_{j=1}^{m} \langle g_{i_j} \rangle\right)$
-    y de nuevo por \ref{cr:rad} se sigue que, 
+    y de nuevo por el lema \ref{cr:rad} se sigue que, 
     $D(f) \subset \bigcup_{j=1}^m D(g_{i_j})$ así que podemos conluir
     que $\{g_{i_j}\mid j\in\{1,\dots,m\}\} \subset \mathcal{U}$ es una
     subcubierta finita.
@@ -454,7 +458,8 @@ ideal primo minimal, de hecho, eso lo hace mínimo.
         &=\{\langle q \rangle; q \mbox{ es primo y divide a } p\}\\
         &=\{\langle p \rangle\}
     \end{align*} 
-Por lo que todos los demás cerrados irreducibles son unitarios.
+    Por lo que todos los demás cerrados irreducibles son unitarios.
+
 \end{ejemplo}
 
 \end{document}
