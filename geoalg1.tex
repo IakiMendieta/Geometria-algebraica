@@ -732,9 +732,9 @@ Recordemos un lema de localizaciones
 \begin{proposicion}{}{}
     Sea $A$ un anillo
     \begin{enumerate}
-        \item Sea $\varphi:A\rightarrow B$ un morfismo de anillos
+        \item Sea $\varphi:A\rightarrow B$ un epimorfismo de anillos
         entonces $Spec(\varphi)$
-        es un homeomorfismo entre $Spec(B)$ y $V(\mbox{Ker}(\varphi))\subset A$
+        es un homeomorfismo entre $Spec(B)$ y $V(\mbox{Ker}(\varphi))\subset Spec(A)$
         con su topología de subespacio.
         \item Sean $S\subset A$ un subconjunto multiplicativo y
         $i:A\rightarrow S^{-1}A$ el morfismo canónico, entonces
@@ -822,5 +822,19 @@ Recordemos un lema de localizaciones
     \end{enumerate}
 \end{proof}
 
-
+\begin{ejemplo}{}{}
+    Consideremos $\pi:\mathbb{Z}\rightarrow \mathbb{Z}/n\mathbb{Z}$
+    la proyección canónica al cociente entonces
+    $$\mbox{Ker}(\pi)=\{m\in\mathbb{Z}\mid \overline{m}=\overline{0}\}=\langle n\rangle$$
+    y por el lema anterior 
+    \begin{align*}
+        Spec(\mathbb{Z}/n\mathbb{Z}) \simeq &V(n)\\
+        &=\{\langle p\rangle\mid p\mbox{ es primo y existe }a\in \mathbb{Z}, n=pa\}\\
+        &=\{\langle p_1\rangle, \dots, \langle p_l\rangle\}
+    \end{align*}
+    Donde $p_1, \dots, p_l$ son los factores primos de $n$.
+    Además cada uno de esos puntos son cerrados en $Spec(\mathbb{Z})$
+    entonces $Spec(\mathbb{Z}/n\mathbb{Z})$ es discreto y tiene
+    tantos puntos como factores primos distintos tenga $n$.
+\end{ejemplo}
 \end{document}
