@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1703897097 "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" "build/geoalg1.pdf" "geoalg1" 1703897099 0
-  "C:/Users/iakim/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1703896622 111117 1893ee98a909f5c79a3d60dcc05388f0 ""
+["pdflatex"] 1703927684 "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" "build/geoalg1.pdf" "geoalg1" 1703927686 0
+  "C:/Users/iakim/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1703915131 111117 1893ee98a909f5c79a3d60dcc05388f0 ""
   "C:/Users/iakim/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1702877147 24141909 d26e8ea7a0f158b4114daadb8c7b2ad7 ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1233951852 1040 b84415f97d114011685943ade933dc71 ""
@@ -186,9 +186,9 @@
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
   "C:/Users/iakim/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "build/geoalg1.aux" 1703897099 1567 1889471a67afa57f8d9d2ff896cfcf65 "pdflatex"
-  "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" 1703897093 21168 d65431a506c8cdbf9ca457aa50babd49 ""
-  "geoalg1.tex" 1703897093 21168 d65431a506c8cdbf9ca457aa50babd49 ""
+  "build/geoalg1.aux" 1703927686 2596 ad5bfdad73e483525c4fee1a7bbacff8 "pdflatex"
+  "c:/Users/iakim/OneDrive/Escritorio/Geometria-algebraica/geoalg1.tex" 1703927683 35786 8e3ee8bbef4457eb4ad731d8838f40ca ""
+  "geoalg1.tex" 1703927683 35786 8e3ee8bbef4457eb4ad731d8838f40ca ""
   (generated)
   "build/geoalg1.aux"
   "build/geoalg1.log"

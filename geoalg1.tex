@@ -72,7 +72,7 @@
     Sea A un anillo denotamos 
     $$Spec(A)=\{\mathfrak{p} \subset A \mid \mathfrak{p} \mbox{ es un ideal primo} \}$$
     Si $M \subset A$ entonces denotamos 
-    $$V(M) = \{\mathfrak{p} \in A \mid M \subset \mathfrak{p}\}$$
+    $$V(M) = \{\mathfrak{p} \in Spec(A) \mid M \subset \mathfrak{p}\}$$
     Si $M=\{f\}$ entonces escribimos $V(f)$.
 \end{definicion}
 
@@ -81,14 +81,14 @@
     $$V(M) = V(\mathfrak{a})$$
 \end{observacion}
 \begin{proof}
-    Si $M \subset \mathfrak{p}$ como $\mathfrak{a}$ es el minimo
-    ideal que contiene a $M$ entonces $\mathfrak{a} \subset \mathfrak{p}$
-    por lo que $V(M) \subset V(\mathfrak{a})$.
-    \\
-    Por otro lado si $\mathfrak{a} \subset \mathfrak{p}$ como
-    $M \subset \mathfrak{a}$ entonces $M \subset \mathfrak{p}$
-    por lo que $V(\mathfrak{a}) \subset V(M)$
-    \\
+    \begin{enumerate}
+        \item[$\subset$)]Si $M \subset \mathfrak{p}$ como $\mathfrak{a}$ es el minimo
+        ideal que contiene a $M$ entonces $\mathfrak{a} \subset \mathfrak{p}$
+        por lo que $V(M) \subset V(\mathfrak{a})$.
+        \item[$\supset$)]Por otro lado si $\mathfrak{a} \subset \mathfrak{p}$ como
+        $M \subset \mathfrak{a}$ entonces $M \subset \mathfrak{p}$
+        por lo que $V(\mathfrak{a}) \subset V(M)$.
+    \end{enumerate}
     $\therefore V(M) = V(\mathfrak{a})$
 \end{proof}
 
@@ -127,7 +127,7 @@
 
         
         \item Como $\mathfrak{a} \mathfrak{b} \subset \mathfrak{a}\cap \mathfrak{b}\subset \mathfrak{a}, \mathfrak{b}$ entonces por 1.
-        $$V(\mathfrak{a}) \cup V(\mathbf{b}) \subset V(\mathfrak{a}\cap \mathfrak{b}) \subset V(\mathfrak{a} \mathfrak{b})$$
+        $$V(\mathfrak{a}) \cup V(\mathfrak{b}) \subset V(\mathfrak{a}\cap \mathfrak{b}) \subset V(\mathfrak{a} \mathfrak{b})$$
         Si $\mathfrak{p} \in V(\mathfrak{a} \mathfrak{b})$ y $\mathfrak{p}\notin V(\mathfrak{a})$ entonces $\mathfrak{a} \not\subset \mathfrak{p}$,
         es decir, existe $a\in \mathfrak{a} \setminus \mathfrak{p}$ pero para toda $b \in \mathfrak{b}$ ocurre que
         $ab \in \mathfrak{a} \mathfrak{b} \subset \mathfrak{p}$ y como $\mathfrak{p}$ es in ideal primo $b \in \mathfrak{p}$
@@ -264,16 +264,18 @@ Además tenemos los siguientes resultados
     $I \subset rad(J)$ si y solo si $rad(I)\subset rad(J)$
 \end{lema}
 \begin{proof}
-    $\implies$ Supongamos que $I \subset rad(J)$ y sea $a \in rad(I)$,
-    entonces existe $n \in \mathbb{N}$ tal que $a^n \in I$ por lo que 
-    $a^n \in rad(J) = \bigcap_{J\subset \mathfrak{p}}\mathfrak{p}$ donde $\mathfrak{p}\in Spec(A)$
-    asi que para todo $\mathfrak{p} \in Spec(A)$ tal que $J\subset \mathfrak{p}$
-    se tiene que $a^n \in \mathfrak{p}$ y como cada uno es un ideal primo
-    $a\in \mathfrak{p}$.
-    $$\therefore a \in \bigcap_{I\subset \mathfrak{p}}\mathfrak{p} = rad(J)$$
-    Concluimos que $rad(I) \subset rad(J)$.\\
-    $\impliedby$ Supongamos que $rad(I)\subset rad(J)$ entonces como 
-    $I\subset rad(I)$ se sigue lo que queriamos.
+    \begin{enumerate}
+        \item[$\implies$)]Supongamos que $I \subset rad(J)$ y sea $a \in rad(I)$,
+        entonces existe $n \in \mathbb{N}$ tal que $a^n \in I$ por lo que 
+        $a^n \in rad(J) = \bigcap_{J\subset \mathfrak{p}}\mathfrak{p}$ donde $\mathfrak{p}\in Spec(A)$
+        asi que para todo $\mathfrak{p} \in Spec(A)$ tal que $J\subset \mathfrak{p}$
+        se tiene que $a^n \in \mathfrak{p}$ y como cada uno es un ideal primo
+        $a\in \mathfrak{p}$.
+        $$\therefore a \in \bigcap_{I\subset \mathfrak{p}}\mathfrak{p} = rad(J)$$
+        Concluimos que $rad(I) \subset rad(J)$.
+        \item[$\impliedby$)]Supongamos que $rad(I)\subset rad(J)$ entonces como 
+        $I\subset rad(I)$ se sigue lo que queriamos.
+    \end{enumerate}
 \end{proof}
 
 \begin{corolario}{}{rad}
@@ -329,12 +331,12 @@ Además tenemos los siguientes resultados
 \begin{observacion}{}{}
     En particular aplicando el lema \ref{cr:rad} a 
     $g = 1$ entonces:
-    \begin{align}
+    \begin{align*}
         D(1) = Spec(A) \subset \bigcup_{i \in \Lambda } D(f_i) \iff\\
         1 \in rad(\sum_{i\in \Lambda} \langle f_i \rangle) \iff \\
         1\in \sum_{i\in \Lambda} \langle f_i \rangle \iff \\
         \langle f_i \mid i\in \Lambda \rangle = A
-    \end{align} 
+    \end{align*} 
     en particular $1 = \sum_{j=1}^{n} \alpha_j f_{i_j}$ con $n\in \mathbb{N}, \quad \alpha_j \in A \quad y \quad i_j \in \Lambda$.\\
     Por lo que $\langle f_{i_j}\mid j\in\{1,...,n \} \rangle = A$
     y por ende $Spec(A) \subset \bigcup_{j=1}^{n}D(f_{i_j})$
@@ -462,4 +464,315 @@ ideal primo minimal, de hecho, eso lo hace mínimo.
 
 \end{ejemplo}
 
+\begin{proposicion}{}{nilpotentes}
+    Sea $f\in A$, entonces $D(f) = \varnothing$
+    si y solo si $f$ es nilpotente
+\end{proposicion}
+\begin{proof}
+    \begin{align*}
+        D(f) = \varnothing \iff \\
+        D(f) \subset \varnothing = D(0) \iff \\
+        f \in rad(\{0\}) \iff \\
+        \mbox{existe }n\in\mathbb{N} \mbox{ tal que }
+        f^n = 0 \iff \\
+        f \mbox{ es nilpotente.}
+    \end{align*}
+\end{proof}
+
+\begin{definicion}{Puntos}{puntos}
+    Sean $X$ un espacio topologico y $x,y \in X$
+    definimos los siguientes conceptos:
+    \begin{enumerate}
+        \item Decimos que $x$ es un punto cerrado
+        si $\{x\}$ es un conjunto cerrado.
+        \item Decimos que $x$ es un punto generico
+        si $cl(\{x\}) = X$.
+        \item Decimos que $x$ es una generalizacion
+        de $y$ (o que $y$ es una especialización de $x$)
+        si $y \in cl(\{x\})$.
+        \item Decimos que $x$ es un punto maximal si 
+        $cl(\{x\})$ es una componente irreducible de $X$.
+    \end{enumerate}
+\end{definicion}
+
+\begin{ejemplo}{}{}
+    Si en la definición \ref{df:puntos}
+    tenemos que $X= Spec(A)$ para algún
+    anillo $A$ entonces las definiciones
+    tienen significados algebraicos.
+    \begin{enumerate}
+        \item $x$ es cerrado si es un 
+        ideal maximal de $A$.
+        \item $x$ es un punto generico si 
+        es (el único) ideal primo mínimo de $A$.
+        y notemos que para que eso ocurra entonces
+        $x = rad(\{0\})$. Así que podemos conluir que
+        la existencia de un  punto generico en $Spec(A)$
+        depende de que $rad(\{0\}) \in Spec(A)$.
+        \item $x$ es una generalización de $y$
+        si $x \subset y$.
+        \item $x$ es un punto maximal si $x$ es 
+        un ideal primo minimal.
+    \end{enumerate}
+\end{ejemplo}
+
+\begin{definicion}{Radicales}{}
+    Sea $A$ un anillo definimos el nilradical de $A$
+    $$Nil(A) = rad(\{0\})$$
+    Y el radical de Jacobson de $A$.
+    $$Jac(A) = \bigcap_{\mathfrak{m} \in \mathcal{M}} \mathfrak{m}$$
+    donde $\mathcal{M} 
+    = \{\mathfrak{m}\subset A \mid \mathfrak{m} \mbox{ es un ideal maximal de } A\}$.
+\end{definicion}
+
+\begin{proposicion}{}{}
+    Sea $A$ un anillo entonces
+    $Nil(A)=Jac(A)$ si y solo si 
+    para todo $U \subset Spec(A)$ abierto no vacio
+    existe $x \in U$ punto cerrado de $Spec(A)$.
+\end{proposicion}
+\begin{proof}
+    \begin{enumerate}
+        \item[$\implies$)] Supongamos que $Nil(A) = Jac(A)$
+        y sea $U \subset Spec(A)$ un abierto no vacío y supongamos
+        que no tiene ningun punto cerrado, es decir 
+        $\forall \mathfrak{m} \in \mathcal{M},
+        \mathfrak{m} \in Spec(A) \setminus U$.\\
+        Primero, como $U$ es abierto entonces existe $I \subset A$
+        un ideal de $A$ tal que $U= Spec(A)\setminus V(I)$.
+        Entonces nuestra hipótesis se traduce a que 
+        $\forall \mathfrak{m} \in \mathcal{M},
+        \mathfrak{m} \in V(I)$, es decir, $I \subset \mathfrak{m}$,
+        por ende $I \subset Jac(A)= \bigcap_{\mathfrak{m}\in \mathcal{M}}\mathfrak{m}$
+        y como $Nil(A)=Jac(A)$, ocurre que $I \subset Nil(A)$.
+        Sin embargo, notemos que $Nil(A) = \bigcap_{\mathfrak{q}\in Spec(A)}\mathfrak{q}$ 
+        por el lema \ref{cr:rad} asi que para cualquier $\mathfrak{p}\in Spec(A)$,
+        $Nil(A) \subset \mathfrak{p}$ por lo que $I \subset \mathfrak{p}$ y entonces $V(I)=Spec(A)$
+        pero entonces $U = \varnothing$ ! lo cual es una contradicción.
+        Por ende existe $\mathfrak{m}\in \mathcal{M}$ tal que $\mathfrak{m} \in U$.
+        \item[$\impliedby$)] Por contapuesta supongamos que $Nil(A)\neq Jac(A)$
+        y notemos que como $\mathcal{M} \subset Spec(A)$ entonces $Nil(A) \subset Jac(A)$
+        y veamos ahora que:
+        $$V(Jac(A))=\{\mathfrak{p}\in Spec(A)\mid Jac(A)\subset \mathfrak{p}\}\neq Spec(A)$$
+        pues si fuera $Spec(A)$ entonces para todo $\mathfrak{p}\in Spec(A)$
+        $Jac(A)\subset \mathfrak{p}$ y por ende $Jac(A)\subset Nil(A)$!
+        Así que $U = Spec(A)\setminus V(Jac(A)) \neq \varnothing$
+        sin embargo dado cualquier $\mathfrak{m}\in \mathcal{M}$ se tien que
+        $Jac(A)\subset \mathfrak{m}$ por lo que $\mathfrak{m}\in V(Jac(A))$, 
+        es decir 
+        $$\forall\mathfrak{m}\in\mathcal{M}, \mathfrak{m}\in Spec(A)\setminus U$$
+        Por lo tanto $U$ no contiene ningún punto maximal.
+    \end{enumerate}
+\end{proof}
+
+\begin{observacion}{}{inducido}
+    Sean $A, B$ un anillos y $\varphi:A\rightarrow B$ 
+    un morfismo de anillos, si $\mathfrak{q}\in Spec(B)$
+    entonces $\varphi^{-1}(\mathfrak{q}) \in Spec(A)$.
+\end{observacion}
+\begin{proof}
+    Es claro que $\varphi^{-1}(\mathfrak{q})\subset A$
+    es un ideal.
+    Sean $f,g \in A$ tales que $fg\in \varphi^{-1}(\mathfrak{q})$
+    entonces $\varphi(fg)=\varphi(f)\varphi(g)\in \mathfrak{q}$
+    y como $\mathfrak{q}$ es primo entonces $\varphi(f)\in \mathfrak{q}$
+    o $\varphi(g)\in \mathfrak{q}$, lo que es equivalente a decir 
+    $f \in \varphi^{-1}(\mathfrak{q})$ o $g\in \varphi^{-1}(\mathfrak{q})$.
+    Así que $\varphi^{-1}(\mathfrak{q})$ es un ideal primo de $A$.
+\end{proof}
+
+La observacion \ref{ob:inducido} nos dice que
+todo morfimo de anillo induce un morfismo en
+los $Spec$ de los anillos. Definamosla y veamos 
+sus propiedades.
+
+\begin{definicion}{}{}
+    Dados $A, B$ anillos y $\varphi:A \rightarrow B$
+    un morfimo de anillos ente ellos definimos la 
+    función $Spec(\varphi):Spec(B)\rightarrow Spec(A)$
+    dada por $Spec(\varphi)(\mathfrak{q})=\varphi^{-1}(\mathfrak{q})$
+\end{definicion}
+
+Probemos antes un lema técnico
+
+\begin{lema}{}{rad_conmuta}
+    Sean $A, B$ anillos, 
+    $\mathfrak{b}\subset B$ un ideal de $B$
+    y $\varphi:A\rightarrow B$
+    un morfimo de anillos entre elllos,
+    entonces $rad(\varphi^{-1}(\mathfrak{b}))
+    = \varphi^{-1}(rad(\mathfrak{b}))$
+\end{lema}
+\begin{proof}
+    \begin{align*}
+        b\in rad(\varphi^{-1}(\mathfrak{b})) \iff\\
+        \mbox{existe }n\in\mathbb{N} \mbox{ tal que }
+        b^n \in \varphi^{-1}(\mathfrak{b}) \iff \\
+        \mbox{existe }n\in\mathbb{N} \mbox{ tal que }
+        \varphi(b^n)\in \mathfrak{b} \iff \\
+        \mbox{existe }n\in\mathbb{N} \mbox{ tal que }
+        \varphi(b)^n \in \mathfrak{b} \iff \\
+        \varphi(b)\in rad(\mathfrak{b}) \iff \\
+        b \in \varphi^{-1}(rad(\mathfrak{b})).
+    \end{align*}
+\end{proof}
+
+\begin{proposicion}{}{continuidad}
+    Dados $A, B$ anillos, $M\subset A$, $\mathfrak{b} \subset B$
+    un ideal y $\varphi:A \rightarrow B$ morfimo de anillos,
+    la función $Spec(\varphi):Spec(B)\rightarrow Spec(A)$
+    cumple que:
+    \begin{enumerate}
+        \item $Spec(\varphi)^{-1}(V(M))=V(\varphi(M))$.
+        \item $V(\varphi^{-1}(\mathfrak{b}))=cl(Spec(\varphi)(V(\mathfrak{b})))$.
+    \end{enumerate}
+\end{proposicion}
+\begin{proof}
+    \begin{enumerate}
+        \item Sea $\mathfrak{q}\in Spec(B)$
+        \begin{enumerate}
+            \item[$\subset$)] Si $\mathfrak{q}\in V(\varphi(M))$
+            entonces $\varphi(M)\subset \mathfrak{q}$ por lo que 
+            $$M\subset \varphi^{-1}(\varphi(M))\subset \varphi^{-1}(\mathfrak{q})$$
+            asi que $Spec(\varphi)(\mathfrak{q})\in V(M)$
+            $$\therefore \mathfrak{q}\in Spec(\varphi)^{-1}(V(M))$$.
+            \item[$\supset$)] Si $\mathfrak{q}\in Spec(\varphi)^{-1}(V(M))$
+            entonces $Spec(\varphi)(\mathfrak{q})\in V(M)$ y por ello,
+            $M \subset Spec(\varphi)(\mathfrak{q}) = \varphi^{-1}(\mathfrak{q})$
+            y entonces se sigue que 
+            $$\varphi(M)\subset \varphi(\varphi^{-1}(\mathfrak{q}))\subset \mathfrak{q}$$
+            asi que $\mathfrak{q}\in V(\varphi(M))$.
+        \end{enumerate}
+        \item Notemos que
+        \begin{multline*}
+            I(Spec(\varphi)(V(\mathfrak{b})))
+            = I(\varphi^{-1}(V(\mathfrak{b})))
+            = \bigcap_{\mathfrak{q}\in V(\mathfrak{b})}\varphi^{-1}(\mathfrak{q})\\
+            = \varphi^{-1}(\bigcap_{\mathfrak{q}\in V(\mathfrak{b})}\mathfrak{q})
+            = \varphi^{-1}(rad(\mathfrak{b}))
+            = rad(\varphi^{-1}(\mathfrak{b}))
+        \end{multline*}
+        Esto gracias al lema \ref{lm:rad_conmuta}, asi que 
+        \begin{multline*}
+            cl(Spec(\varphi)(V(\mathfrak{b})))
+            =V(I(Spec(\varphi)(V(\mathfrak{b}))))\\
+            =V(rad(\varphi^{-1}(\mathfrak{b})))
+            =V(\varphi^{-1}(\mathfrak{b}))
+        \end{multline*}
+
+    \end{enumerate}
+\end{proof}
+
+\begin{observacion}{}{}
+    Observemos que la primer parte de 
+    la proposición \ref{pr:continuidad} dice que $Spec(\varphi)$
+    es una función continua.\\
+    Notemos que en particular para $f\in A$
+    \begin{multline*}
+        Spec(\varphi)^{-1}(D(f))
+        = Spec(\varphi)^{-1}(Spec(A)\setminus V(f))\\
+        = Spec(B)\setminus Spec(\varphi)^{-1}(V(f))
+        = Spec(B)\setminus V(\varphi(f))
+        = D(\varphi(f))
+    \end{multline*}
+
+    Además si tenemos dos morfimos de anillos
+    $f:A\rightarrow B$ y $g:B\rightarrow C$ 
+    ocurre que $Spec(g\circ f)= Spec(f)\circ Spec(g)$,
+    por lo que $Spec(-)$ define un funtore
+    contravariante de la categoria de anillos a la de 
+    espacios topológicos.
+\end{observacion}
+
+\begin{proposicion}{}{}
+    Sean $A, B$ anillos y $\varphi:A \rightarrow B$ 
+    morfismo de anillos entonces $Spec(\varphi)$ es un
+    morfismo dominante si y solo si todos los elementos
+    de Ker($\varphi$) son nilpotentes.
+\end{proposicion}
+\begin{proof}
+    Por el lema \ref{pr:continuidad} se tiene que
+    \begin{multline*}
+        V(\mbox{Ker}(\varphi))=V(\varphi(\{0\}))
+        =cl(Spec(\varphi)(V(0)))\\
+        =cl(Spec(\varphi)(Spec(A)))
+        =cl(\mbox{Im}(Spec(\varphi)))
+    \end{multline*}
+    \begin{align*}
+        Spec(\varphi) \mbox{ es dominante }\iff\\
+        cl(\mbox{Im}(Spec(\varphi))) = Spec(B) \iff \\
+        V(\mbox{Ker}(\varphi)) = Spec(B) \iff\\
+        \forall f\in \mbox{Ker}(\varphi),\quad V(f)=Spec(B)\iff \\
+        \forall f\in \mbox{Ker}(\varphi),\quad D(f)=\varnothing \iff \\
+        \forall f\in \mbox{Ker}(\varphi),\quad \mbox{f es nilpotente}.
+    \end{align*}
+    Esto último gracias a la proposición \ref{pr:nilpotentes}.
+\end{proof}
+
+\begin{proposicion}{}{}
+    Sea $A$ un anillo
+    \begin{enumerate}
+        \item Sea $\varphi:A\rightarrow B$ un morfismo de anillos
+        entonces $Spec(\varphi)$
+        es un homeomorfismo entre $Spec(B)$ y $V(\mbox{Ker}(\varphi))\subset A$
+        con su topología de subespacio.
+        \item Sean $S\subset A$ un subconjunto multiplicativo y
+        $i:A\rightarrow S^{-1}A$ el morfismo canónico, entonces
+        $Spec(i)$ es un homeomorfismo entre $Spec(S^{-1}A)$ y 
+        $\mathcal{S}=\{\mathfrak{p}\in Spec(A)\mid S\cap \mathfrak{p} = \varnothing\}$
+    \end{enumerate}
+\end{proposicion}
+\begin{proof}
+    \begin{enumerate}
+        \item Veamos primero que si $\mathfrak{q}\in Spec(B)$
+        entonces $\{0\}\subset \mathfrak{q}$ y por ende 
+        $\mbox{Ker}(\varphi)=\varphi^{-1}(0)\subset\varphi^{-1}(\mathfrak{q}) 
+        = Spec(\varphi)(\mathfrak{q})$
+        $$\therefore Spec(\varphi)(\mathfrak{q}) \in V(\mbox{Ker}(\varphi))$$
+        Como se quería, ahora veamos la biyectividad.\\
+        Por el primer teorema de isomorfismo se tiene que $B \simeq A/\mbox{Ker}(\varphi)$
+        y por el teorema de correspondencia hay una biyección entre ideales de $A/\mbox{Ker}(\varphi)$
+        e ideales $I\subset A$ tales que $\mbox{Ker}(\varphi)\subset I$ y la biyección esta dada por
+        tomar preimagen asi que en particular $Spec(\varphi)$ es la restricción de esta biyección
+        a $V(\mbox{Ker}(\varphi))$ esta biyección es precisamente con $Spec(A/\mbox{Ker}(\varphi))$ que 
+        por el isomorfismo esta en biyección con $Spec(B)$. Resumiendo el argumento,
+        el teorema de correspondencia nos garantiza que $Spec(\varphi)$ es una biyección entre
+        $V(\mbox{Ker}(\varphi))$ y $Spec(B)$.\\
+        Finalmente si $V(\mathfrak{b})\subset Spec(B)$ es un cerrado se tiene que 
+        \begin{align*}
+            &Spec(\varphi)(V(\mathfrak{b}))\\
+            &=\{Spec(\varphi)(\mathfrak{q})\mid \mathfrak{q}\in V(\mathfrak{b})\}\\
+            &=\{ Spec(\varphi)(\mathfrak{q})\mid \mathfrak{b}\subset \mathfrak{q} \in Spec(B)\}\\
+            &=\{\varphi^{-1}(\mathfrak{q})\mid \mathfrak{b}\subset \mathfrak{q}\in Spec(B)\}\\
+            &= \{\varphi^{-1}(\mathfrak{q})\mid \varphi^{-1}(\mathfrak{b}) \subset \varphi^{-1}(\mathfrak{q})\in Spec(B)\}\\
+            &= \{\mathfrak{p}\in V(\mbox{Ker}(\varphi))\mid \varphi^{-1}(\mathfrak{b}) \subset \mathfrak{p}\}\\
+            &= V(\mbox{Ker}(\varphi))\cap V(\varphi^{-1}(\mathfrak{b}))
+        \end{align*}
+        Por lo que $Spec(\varphi)$ es una función cerrada en su imagen.
+        Concluimos que $Spec(\varphi)$ es un homeomorfismo en su imagen
+        \item Recordemos que $i:A\rightarrow S^{-1}A$ esta dada por $i(a)=a/1$
+        por lo que $\mbox{Ker}(i)=\{a\in A\mid a/1=0\}= \{a\in A\mid \exists s\in S, sa=0\}$
+        Asi que 
+        $$V(\mbox{Ker}(i))
+        =\{\mathfrak{p}\in Spec(A)\mid \{a\in A\mid \exists s\in S, sa=0\} \subset \mathfrak{p}\}
+        $$
+        Si probamos que $V(\mbox{Ker}(i))=\mathcal{S}$ podemos aplicar el primer inciso y 
+        habremos terminado.
+        \begin{enumerate}
+            \item[$\supset$)] Sea $\mathfrak{p}\in \mathcal{S}$
+            entonces $\mathfrak{p}\cap S = \varnothing$.
+            Si $a\in \mbox{Ker}(i)$ entonces existe $s\in S$ tal que
+            $sa=0\in \mathfrak{p}$ como $\mathfrak{p}$ es un ideal primo 
+            $a\in \mathfrak{p}$ 
+            $$\therefore \mbox{Ker}(i)\subset \mathfrak{p}$$.
+            \item[$\subset$)] Sea $\mathfrak{p}\in Spec(A)$ tal que
+            $\mbox{Ker}(i)\subset \mathfrak{p}$ sean $a/s, a'/s'\in S^{-1}A$
+            tales que $aa'/ss' \in i(\mathfrak{p})$ entonces existe 
+            $p\in \mathfrak{p}$ tal que $p/1= aa'/ss'$ por lo que existe $t\in S$
+            que hace $t(pss'-aa')=0$ entonces $pss'-aa'\in \mbox{Ker}(i)\subset \mathfrak{p}$
+            
+
+        \end{enumerate}
+    \end{enumerate}
+\end{proof}
 \end{document}
