@@ -1,0 +1,400 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tikz-page}
+\usepackage{tikz,tkz-tab,amsmath}
+\usepackage[many]{tcolorbox}
+\usetikzlibrary{shadows.blur}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+    }
+
+\newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+\newcommand{\Set}{\catname{Set}}
+\newcommand{\Ring}{\catname{Ring}}
+\newcommand{\RModules}{\catname{R-Mod}}
+\newcommand{\Ab}{\catname{Ab}}
+
+\selectlanguage{spanish}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{teorema}{Teorema}%
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{proposicion}{Proposición}%
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{pr}
+\newtcbtheorem[number within=section]{corolario}{Corolario}%
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{cr}
+\newtcbtheorem[number within=section]{lema}{Lema}%
+{breakable,enhanced,colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{lm}
+\newtcbtheorem[number within=section]{definicion}{Definición}%
+{breakable,enhanced,colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{df}
+\newtcbtheorem[number within=section]{observacion}{Observación}%
+{breakable,enhanced,colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ob}
+\newtcbtheorem[number within=section]{ejemplo}{Ejemplo}%
+{breakable,enhanced,colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{ej}
+
+\tikzset{
+        secnode/.style={
+                minimum height=1cm,
+                inner xsep=20pt,
+                rotate=90,
+                anchor=north east,
+                draw=white,
+                fill=violet,
+                text=white,
+                blur shadow={shadow blur steps=5,shadow blur extra rounding=1.3pt}},
+        pagenode/.style={
+                minimum width=5mm,
+                minimum height=1cm,
+                inner sep=2pt,
+                anchor=south east,
+                draw=white,
+                fill=violet,
+                text=white,
+                blur shadow={shadow blur steps=5,shadow blur extra rounding=1.3pt}}
+        }
+\newcommand{\tikzpagelayout}{
+        \draw[violet,line width=2pt,rounded corners=20pt] ([xshift=5mm]page.northwest) |- ([xshift=-2cm,yshift=5mm]page.southeast);
+        \node[secnode] at (page.northwest) {Geometría algebraica. \thesection};
+        \node[pagenode] at ([xshift=-1cm]page.southeast) {\thepage};
+      }
+
+\pagestyle{plain}
+
+\title{Gavillas}
+\author{Levia MN}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Pregavillas}
+\begin{definicion}{}{}
+    Sea $(X, \tau)$ un espacio topológico,
+    $\tau$ es un conjunto parcialmente ordenado
+    por la contención $(\subset)$ podemos 
+    considerar la categoria asociada $C_\tau$
+    tal que sus elementos son los elementos de 
+    $\tau$ y existe $V\rightarrow U$ si y solo si 
+    $V \subset U$.\\
+    Una pregavilla sobre $(X,\tau)$ es un funtor
+    $\mathcal{F}:C_{\tau}^{op}\rightarrow C$
+    con $C$ una categoría, las que nos interesan
+    para los propositos de estas notas son las 
+    categorias \Set, \Ab, \Ring, \RModules.\\
+    Adicionalmente para nuestra notación pondremos
+    $$\rho_{V}^{U}
+    =\mathcal{F}(V\rightarrow U):\mathcal{F}(U) \rightarrow \mathcal{F}(V)$$
+    Y los llamaremos los morfismos de restricción.\\
+    Diremos que una pregavilla $\mathcal{F}$ es 
+    una gavilla si para todo $U\in \tau$ y para toda
+    cubierta abierta $\mathcal{C}=\{U_i\mid i\in I\}$ de $U$
+    se cumple que dadas $s_i \in \mathcal{F}(U_i)$ 
+    tales que para cualquier par de indices $i, j\in I$
+    se tiene que:
+    $$\rho_{U_i \cap U_j}^{U_i}(s_i)=\rho_{U_i \cap U_j}^{U_j}(s_j)$$
+    Entonces existe una única $s\in \mathcal{F}(U)$
+    tal que $\rho_{U_i}^{U}(s) = s_i$
+\end{definicion}
+
+\begin{ejemplo}{}{}
+    Los ejemplos clásicos de gavillas tienen
+    que ver con funciones que se restringen 
+    a abiertos y preservan esa estructura.
+    Algunos ejemplos clásicos son 
+    $$\mathcal{C}(U)=\{f:U\rightarrow \mathbb{R} \mid f \mbox{ es continua.}\}$$
+    Y si $X$ es una variedad suave sobre $k\in \{\mathbb{R}, \mathbb{C}\}$
+    $$\mathcal{O}(U)=\{f:X\rightarrow k\mid f\mbox{ es una función suave.}\}$$
+    como y en ambos ejemplos las restricciones estan dadas por
+    $\rho_{V}^{U}(f)=f\circ i_{V}$.
+    Con $i_{V}:V\rightarrow U$ la inclusión canónica,
+    y es claro que ambas son gavillas sobre $X$.
+\end{ejemplo}
+
+\begin{definicion}{}{}
+    Dada un espacio topológico $(X,\tau)$
+    y una gavilla $\Gamma$ sobre $X$,
+    dado $x\in X$ podemos 
+    definir $M_x=\{(U,s) \mid U\in \tau, s\in \Gamma(U)\}$
+    y tener la realción dada por $(U,s)\sim (V,t)$ si y solo si
+    existe $W \in \mathcal{N}(x)$ tal que $W \subset U\cap V$
+    y $\rho_{W}^{U}(s)= \rho_{W}^{V}(t)$.
+\end{definicion}
+
+\begin{proposicion}{}{}
+    La realción $\sim$ anterior es una relación de 
+    equivalencia.
+\end{proposicion}
+\begin{proof}
+    \begin{enumerate}
+        \item Notemos que $U\subset U=U\cap U$ y
+        $\rho_{U}^{U}(s)=\rho_{U}^{U}(s)$
+        por lo que $(U,s)\sim (U,s)$
+        \item La definición es claramente simétrica.
+        \item Si $(U,s)\sim (V,t)$ y $(V,t)\sim(W,r)$
+        entonces tenemos $W_1,W_2\in \mathcal{N}(x)$
+        tales que $W_1\subset U\cap V$ y 
+        $W_2\subset V\cap W$ y además
+        $\rho_{W_1}^{U}(s)=\rho_{W_1}^{V}(t)$
+        y $\rho_{W_2}^{V}(t)=\rho_{W_2}^{W}(r)$.\\
+        Consideremos $W_3 = W_1\cap W_2 \in\mathcal{N}(x)$
+        y notemos que $W_3 \subset (U\cap V)\cap (V\cap W)\subset U\cap W$
+        y también
+        \begin{align*}
+            \rho_{W_3}^{U}(s)
+            =\rho_{W_3}^{W_1}(\rho_{W_1}^{U}(s))
+            =\rho_{W_3}^{W_1}(\rho_{W_1}^{V}(t))
+            =\rho_{W_3}^{V}(t)\\
+            =\rho_{W_3}^{W_2}(\rho_{W_2}^{V}(t))
+            =\rho_{W_3}^{W_2}(\rho_{W_2}^{W}(r))
+            =\rho_{W_3}^{W}(r)
+        \end{align*}
+        Pues $\Gamma$ es un funtor. Por lo tanto
+        $(U,s)\sim (W,r)$
+    \end{enumerate}
+\end{proof}
+
+\begin{definicion}{}{}
+    Dado $(X,\tau)$ espacio topológico y
+    $\Gamma$ una pregavilla sobre $X$,
+    para cada $x\in X$ definiremos
+    $$\Gamma_x=M_x/\sim$$
+    El tallo de la gavilla en $x$.
+    Y notemos que en las categorias que nos 
+    interesan 
+    $$\Gamma_x= \lim_{U\in \mathcal{N}(x)}\Gamma(U)$$
+    De hecho si la categoria donde $\Gamma$
+    toma valores es alguna arbitraria, esta
+    es la definición del tallo de la gavilla 
+    sobre $x$.
+\end{definicion}
+
+\begin{observacion}{}{}
+    Tenemos una función natural
+    para cada $U\in \mathcal{N}(x)$,
+    $\pi_x^{U}:\Gamma(U)\rightarrow \Gamma_x$
+    que asigna $s \mapsto [U,s]$
+    y escribimos $s_x = \pi_x^{U}(s)$ cuando
+    es claro por el contexto.
+\end{observacion}
+
+\begin{ejemplo}{}{}
+    Consideremos dos espacios topológicos
+    $(X,\tau_X),(Y, \tau_Y)$ y una función 
+    continua $p:Y\rightarrow X$.\\
+    Para cada $U \in \tau_X$ definamos:
+    $$\Gamma(U)=\{f:U\rightarrow Y \mid p\circ f= id_{U}, f \mbox{ es continua.} \}$$
+    es decir, el conjunto de secciones continuas de $p$
+    sobre $U$. Entonces $\Gamma$ es una gavilla sobre $f$
+    con las restricciones usuales.\\
+    Ya que si $f\in \Gamma(U)$ y $V\subset U$
+    entonces para cualquier $x\in V$, entonces
+    $p\circ(f\circ i_V)(x)=(p\circ f)\circ i_V(x)
+    =id_U(x)=x$ por lo que $p\circ \rho_{V}^{U}(f) = id_V$
+    asi que las restricciones estan bien definidas.
+\end{ejemplo}
+
+Ahora veremos que en cierto sentido cualquier
+gavilla es la gavilla de secciones continuas
+sobre algún espacio.
+
+\begin{definicion}{}{}
+    Para un espacio topológico $(X,\tau)$
+    y una pregavilla $\Gamma$ definiremos 
+    $$\widetilde{\Gamma}=\bigsqcup_{x\in X}\Gamma_x$$
+    Y para cada $U\in \tau$ y $s\in \Gamma(U)$
+    $$\mathcal{V}(U,s)=\{(x, s_x)\mid x\in U\}$$
+    Finalmente tenemos una función $p:\widetilde{\Gamma}\rightarrow X$
+    tal que $p(x,[U,s])=x$
+\end{definicion}
+
+\begin{proposicion}{}{}
+    $\mathcal{B}=\{\mathcal{V}(U,s)\mid U\in\tau, s\in \Gamma(U)\}$
+    es una base para una topología sobre $\widetilde{\Gamma}$.
+\end{proposicion}
+\begin{proof}
+    \begin{enumerate}
+        \item Dado $(x,[U,s])\in \widetilde{\Gamma}$
+        entonces $(x,[U,s])=(x,s_x)\in \mathcal{V}(U,s)$
+        por lo que 
+        $$\widetilde{\Gamma}=\bigcup \mathcal{B}$$
+        \item Sea $(x,[W,r])\in \mathcal{V}(U,s)\cap \mathcal{V}(V,t)$
+        entonces por definición $x \in U\cap V$,
+        y además $[V,t]=t_x=[W,r]=s_x=[U,s]$
+        por lo que existe $W_1\in \mathcal{N}(x)$
+        $W_1\subset U\cap V$ tal que
+        $h:=\rho_{W_1}^{U}(s)=\rho_{W_1}^{V}(t)\in \Gamma(W)$
+        asi que consideremos $B = \mathcal{V}(W_1, h)\in \mathcal{B}$
+        Notemos que como $x\in W_1$ y también, 
+        $W_1\subset W_1=W_1\cap U$ y 
+        $\rho_{W_1}^{W_1}(h)=id_{W_1}(h)=h=\rho_{W_1}^{U}(s)$
+        por lo que $[W,r]=[U,s]=[W_1,h]=h_x$
+        asi que $(x,[W,r])\in B$\\
+        Finalmente dada $(y,h_y)\in B$ entonces ocurre que 
+        $y\in W_1 \subset U\cap V$ por lo que $y\in U$ y 
+        $y\in V$ y además $h_y=[W_1, h]=[U,s]=[V,t]$ en $\Gamma_y$, ya que
+        $W_1\subset U ( V )$ y además $\rho_{W_1}^{U}(s)=h=\rho_{W_1}^{V}(t)$
+        asi que $(y,h_y)\in \mathcal{V}(U,s)\cap \mathcal{V}(V,t)$
+        por lo que $B \subset \mathcal{V}(U,s)\cap \mathcal{V}(V,t)$
+    \end{enumerate}
+    Esto prueba que $\mathcal{B}$ es una base 
+    para una topología $\tilde{\tau}$ sobre $\widetilde{\Gamma}$
+\end{proof}
+
+\begin{definicion}{}{}
+    A $(\widetilde{\Gamma},\tilde{\tau})$
+    se le llama el espacio étale de la gavilla 
+    $\Gamma$
+\end{definicion}
+
+\begin{proposicion}{}{}
+    La función $p:\widetilde{\Gamma}\rightarrow X$
+    definida arriba es continua y es un homeomorfismo 
+    local.
+\end{proposicion}
+\begin{proof}
+    Dado $U\in\tau$ se tiene que 
+    $$p^{-1}(U)=\{(x,[V,t])\mid x\in U, t\in \Gamma(V)\}$$
+    Así que dado $(x, [V,t])\in p^{-1}(U)$ 
+    consideremos $W=U\cap V$, $h =\rho_{W}^{V}(t)$ 
+    y $B=\mathcal{V}(W,h)$.
+    Es fácil ver que $[V,t]=[W,h]$ en $\Gamma_x$ ya que 
+    $W\subset W\cap V$ y $h = \rho_{W}^{W}(h)=\rho_{W}^{V}(t)$
+    por lo que $(x,[V,t])\in B$.
+    Dado $(y,h_y)\in B$ ocurre que $y\in W\subset U$
+    por lo que $(y,h_y)\in p^{-1}(U)$.
+    $$\therefore (x,[V,t])\in B\subset p^{-1}(U)$$
+    Por lo que $p^{-1}(U)$ es abierto. Asi que $p$
+    es una función continua.\\
+    Más aún para cada $U\in\tau$ y $s\in \Gamma(U)$
+    $p(\mathcal{V}(U,s))=U$ por lo que es una función abierta
+    y al restringirla a cualquier abierto báisco tenemos 
+    un homeomorfismo, como cada punto tiene un abierto básico 
+    que lo contiene, $p$ es un homeomorfismo local.
+\end{proof}
+
+\begin{proposicion}{}{}
+    Sea $s\in \Gamma(U)$ entonces la función
+    $f:U\rightarrow \widetilde{\Gamma}$ dada 
+    por $f(x)=(x,s_x)$ es una sección continua 
+    de $p$. Más aún, si $\Gamma$ es una gavilla
+    se vale el regreso
+\end{proposicion}
+\begin{proof}
+    Primero, notemos que dado $x\in f^{-1}(\mathcal{V}(V,t))$ 
+    entonces $(x,s_x)\in \mathcal{V}(V,t)$ entonces
+    $x\in V$ y también $s_x=t_x$ asi que existe
+    $W\in \mathcal{N}(x)$ tal que $W\subset U\cap V$
+    tal que $\rho_{W}^{U}(s)= \rho_{W}^{V}(t)$
+    asi que dado $y\in W$ como $W,U,V\in\mathcal{N}(y)$
+    y ocurre lo anterior, entonces $s_y=t_y$,
+    por lo que $f(y)=(y,s_y)=(y,t_y)\in \mathcal{V}(V,t)$.
+    Concluimos que $x\in W\subset f^{-1}(\mathcal{V}(V,t))$, 
+    así que $f$ es continua.
+    Y es claro que $p\circ f(x)= p(x,s_s)=x$ asi que 
+    si es una sección continua de $p$.
+
+    Por otro lado, supongamos que $\Gamma$ es una gavilla
+    y sea $\sigma:U \rightarrow \widetilde{\Gamma}$
+    una sección continua de $p$ y escribamos $\sigma(x)=(x,\sigma_1(x))$.
+    Sea $x\in U$ entonces, como $\mathcal{B}$ es una base, existen
+    $V^x\in \tau$ y $t^x\in \Gamma(V)$ tal que
+    $\sigma(x)\in \mathcal{V}(V^x,t^x)$ y por lo tanto
+    $\sigma_1(x)=t^x_x$. Como para todo $x\in X$,
+    $x\in V^x$ entonces $X = \bigcup_{x\in X}V^x$
+    Veamos que $\{t^x\mid x\in X\}$ son compatibles.
+    Sean $x,y\in X$ y $a\in V_x\cap V_y$ entonces,
+    $t^x_a=\sigma_1(a)=t^y_a$ por lo que existe $W_a\in \mathcal{N}(a)$
+    tal que $W_a\subset V_x\cap V_y$ y 
+    \begin{equation*}
+        \rho_{W_a}^{V_x}(t^x) = \rho_{W_a}^{V_y}(t^y)
+    \end{equation*}
+    Asi, tenemos a la familia $\{W_a\mid a\in V_x\cap V_y\}$
+    la cual cubre a $V_x\cap V_y$ y a la familia
+    $\{h_a:=\rho_{W_a}^{V_x}(t^x) = \rho_{W_a}^{V_y}(t^y)\in 
+    \Gamma(W_a)\mid a\in V_x\cap V_y\}$
+    y además ocurre que
+    dados $a,b\in V_x\cap V_y$.
+    \begin{align*}
+        \rho_{W_a\cap W_b}^{W_a}(h_a)
+        =\rho_{W_a\cap W_b}^{W_a}(\rho_{W_a}^{V_x}(t^x))\\
+        =\rho_{W_a\cap W_b}^{V_x}(t^x)
+        =\rho_{W_a\cap W_b}^{W_b}(\rho_{W_b}^{V_x}(t^x))\\
+        =\rho_{W_a\cap W_b}^{W_b}(h_b)
+    \end{align*}
+    Y como $\Gamma$ es una gavilla entonces existe
+    una única $t^{x,y}\in \Gamma (V_x\cap V_y)$ tal que 
+    para cualquier $a\in V_x\cap V_y$ ocurre que:
+    $\rho_{W_a}^{V_x\cap V_y}(t^{x,y})=h_a$
+    Además, veamos que para cualquier $a\in V_x\cap V_y$
+    $$\rho_{W_a}^{V_x\cap V_y}(\rho_{V_x\cap V_y}^{V_x}(t^x))= \rho_{W_a}^{V_x}(t^x)=h_a$$
+    y como $t^{x,y}$ es único, se sigue que 
+    $t^{x,y}=\rho_{V_x\cap V_y}^{V_x}(t^x)$.
+    Pero también ocurre que:
+    $$\rho_{W_a}^{V_x\cap V_y}(\rho_{V_x\cap V_y}^{V_y}(t^y))= \rho_{W_a}^{V_y}(t^y)=h_a$$
+    $\therefore \rho_{V_x\cap V_y}^{V_x}(t^x)=t^{x,y}=\rho_{V_x\cap V_y}^{V_y}(t^y)$.
+    Y de nuevo como $\Gamma$ es una gavilla
+    existe $t\in \Gamma(U)$ tal que para cualquier
+    $x\in X$,ocurre que $\rho_{V_x}^{U}(t)=t^x$.\\
+    Ahora bien para cualquier $x\in X$,
+    debe ocurrir que $[U,t]=[V_x,t^x]$ ya que
+    $V_x\subset V_x\cap U$ y $\rho_{V_x}^{V_x}(t^x)=t^x=\rho_{V_x}^{U}(t)$,
+    es decir, para toda $x\in X$, se tiene que $t_x=t^x_x=\sigma_1(x)$
+    $$\therefore \sigma(x)= (x,t_x)$$
+    Como se quería.
+\end{proof}
+
+Notemos que la definición de pregavilla
+nos da una noción natural de morfismos de
+pregavillas, es decir, transformaciones 
+naturales entre los funtores.
+
+\begin{teorema}{}{}
+    Sean $(X,\tau)$ espacio topológico, 
+    $\Gamma$ una gavilla sobre $X$ y 
+    $(\widetilde{\Gamma},\tilde{\tau})$ su espacio étale,
+    si $\mathcal{G}$ es la gavilla de secciones
+    de $p:\widetilde{\Gamma}\rightarrow X$, entonces
+    $\Gamma \simeq \mathcal{G}$.
+\end{teorema}
+\begin{proof}
+    Para cada $U\in \tau$ definamos
+    $\alpha_U:\Gamma(U)\rightarrow \mathcal{G}(U)$
+    dada por $\alpha_U(s)(x)=(x,s_x)$ y veamos que 
+    es un transformación natural.
+
+    Sean $x\in V\subset U$ y $s\in \Gamma(U)$
+    $$\alpha_V(\rho_{V}^{U}(s))(x)
+    =(x, \rho_{V}^{U}(s)_x)
+    =(x,s_x)=\alpha_U(s)\circ i_V (x)$$
+    Pues $s_x=[U,s]=[V,\rho_{V}^{U}(s)]=\rho_{V}^{U}(s)_x$
+    ya que $v\subset V\cap U$ y $\rho_{V}^{V}(\rho_{V}^{U}(s))=\rho_{V}^{U}(s)$
+    por lo que $\alpha_U$ defininen las componentes de una transformación
+    natural.\\
+    Por el teorema anterior y gracias a que 
+    $\Gamma$ es un gavilla, se tiene que cada 
+    $\alpha_U$ es suprayectiva.\\
+    Finalmente si ocurre que $\alpha_U(s)=\alpha_U(t)$
+    entonces para todo $x\in U$ se tiene que $s_x=t_x$
+    por lo que existe $W_x\subset U$ tal que $\rho_{W_x}^{U}(s)=\rho_{W_x}^{U}(t)$.
+    Si definimos $h_x=\rho_{W_x}^{U}(s)$ para cada $x\in U$
+    entonces podemos ver que 
+    \begin{align*}
+        \rho_{W_x\cap W_y}^{W_x}(h_x)
+        =\rho_{W_x\cap W_y}^{W_x}(\rho_{W_x}^{U}(s))
+        =\rho_{W_x\cap W_y}^{U}(s) \\
+        =\rho_{W_x\cap W_y}^{W_y}(\rho_{W_y}^{U}(s))
+        =\rho_{W_x\cap W_y}^{W_y}(h_y)
+    \end{align*}
+    Por lo que existe una única $r\in \Gamma(U)$
+    tal que $\rho_{W_x}^{U}(r)=h_x$.\\
+    Notemos que $s,t\in \Gamma(U)$ cumplen también
+    dicha condición así que $s=t$.
+    Por lo que $\alpha_U$ es inyectiva para cada $U\in \tau$,
+    por tanto definen las componentes de un isomorfismo natural.
+\end{proof}
+\end{document}
