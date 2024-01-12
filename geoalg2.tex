@@ -353,6 +353,48 @@ nos da una noción natural de morfismos de
 pregavillas, es decir, transformaciones 
 naturales entre los funtores.
 
+\begin{lema}{}{}%
+    Sean $(X,\tau)$ un espacio topológico,
+    $\Gamma$ una gavilla sobre $X$, 
+    $U\in \tau$ y dos elementos
+    $\alpha,\beta \in \Gamma(U)$.
+    Ocurre que $\alpha=\beta$
+    si y solo si para cualquier $x\in U$
+    $\alpha_x = \beta_x$.
+\end{lema}%
+\begin{proof}
+    \begin{enumerate}
+        \item[$\implies$)] Si $\alpha=\beta$
+        entonces ocurre que para cualquier 
+        $x\in U$ que 
+        $$\alpha_x=[U,\alpha]=[U,\beta]=\beta_x$$
+        \item[$\impliedby$)]Supongamos que para cualquier
+        $x\in U$ ocurre que $\alpha_x=\beta_x$
+        ahora entonces para cada $x\in U$ existe
+        $W_x\subset U$ tal que 
+        $$\rho_{W_x}^{U}(\alpha)= \rho_{W_x}^{U}(\beta)$$
+        Asi que de $\{W_x\mid x\in U\}$ es una cubierta
+        abierta de $U$ y además tenemos a la familia
+        $\{h_x:=\rho_{W_x}^{U}(\alpha)\in \Gamma(W_x)\mid x\in U\}$
+        notemos que dados $x, y \in U$ ocurre que:
+        \begin{align*}
+            \rho_{W_x\cap W_y}^{W_x}(h_x)
+            =\rho_{W_x\cap W_y}^{W_x}(\rho_{W_x}^{U}(\alpha))
+            =\rho_{W_x\cap W_y}^{U}(\alpha) \\
+            =\rho_{W_x\cap W_y}^{W_y}(\rho_{W_y}^{U}(\alpha))
+            =\rho_{W_x\cap W_y}^{W_y}(h_y)
+        \end{align*}
+        Por lo que esta familia es compatible y como
+        $\Gamma$ es una gavilla, existe una única 
+        $\gamma\in \Gamma(U)$ tal que 
+        para cada $x\in U$ ocurre que 
+        $$\rho_{W_x}^{U}(\gamma)=h_x=\rho_{W_x}^{U}(\alpha)= \rho_{W_x}^{U}(\beta)$$
+        entonces se sigue que 
+        $\alpha=\beta$
+    \end{enumerate}
+\end{proof}
+
+
 \begin{teorema}{}{}
     Sean $(X,\tau)$ espacio topológico, 
     $\Gamma$ una gavilla sobre $X$ y 
@@ -374,27 +416,14 @@ naturales entre los funtores.
     Pues $s_x=[U,s]=[V,\rho_{V}^{U}(s)]=\rho_{V}^{U}(s)_x$
     ya que $v\subset V\cap U$ y $\rho_{V}^{V}(\rho_{V}^{U}(s))=\rho_{V}^{U}(s)$
     por lo que $\alpha_U$ defininen las componentes de una transformación
-    natural.\\
+    natural.
+
     Por el teorema anterior y gracias a que 
     $\Gamma$ es un gavilla, se tiene que cada 
-    $\alpha_U$ es suprayectiva.\\
-    Finalmente si ocurre que $\alpha_U(s)=\alpha_U(t)$
-    entonces para todo $x\in U$ se tiene que $s_x=t_x$
-    por lo que existe $W_x\subset U$ tal que $\rho_{W_x}^{U}(s)=\rho_{W_x}^{U}(t)$.
-    Si definimos $h_x=\rho_{W_x}^{U}(s)$ para cada $x\in U$
-    entonces podemos ver que 
-    \begin{align*}
-        \rho_{W_x\cap W_y}^{W_x}(h_x)
-        =\rho_{W_x\cap W_y}^{W_x}(\rho_{W_x}^{U}(s))
-        =\rho_{W_x\cap W_y}^{U}(s) \\
-        =\rho_{W_x\cap W_y}^{W_y}(\rho_{W_y}^{U}(s))
-        =\rho_{W_x\cap W_y}^{W_y}(h_y)
-    \end{align*}
-    Por lo que existe una única $r\in \Gamma(U)$
-    tal que $\rho_{W_x}^{U}(r)=h_x$.\\
-    Notemos que $s,t\in \Gamma(U)$ cumplen también
-    dicha condición así que $s=t$.
-    Por lo que $\alpha_U$ es inyectiva para cada $U\in \tau$,
-    por tanto definen las componentes de un isomorfismo natural.
+    $\alpha_U$ es suprayectiva y además el lema anterior prueba que 
+    $\alpha_U$ es inyectiva para cada 
+    $U\in \tau$ y por tanto la familia $\alpha_U$ con
+    $U\in \tau$ definen las componentes 
+    de un isomorfismo natural.
 \end{proof}
 \end{document}

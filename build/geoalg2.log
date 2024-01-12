@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.17)  5 JAN 2024 00:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.17)  11 JAN 2024 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -794,15 +794,15 @@ L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 24797 strings out of 475248
- 562336 string characters out of 5757812
+ 24800 strings out of 475248
+ 562404 string characters out of 5757812
  1942785 words of memory out of 5000000
- 45896 multiletter control sequences out of 15000+600000
+ 45899 multiletter control sequences out of 15000+600000
  565318 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,19n,121p,545b,1865s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/iakim/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg2.pdf (6 pages, 194671 bytes).
+Output written on c:\Users\iakim\OneDrive\Escritorio\Geometria-algebraica\build\geoalg2.pdf (6 pages, 196893 bytes).
 PDF statistics:
  161 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
