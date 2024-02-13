@@ -4,6 +4,7 @@
 \usepackage{xcolor}
 \usepackage{tikz-page}
 \usepackage{tikz,tkz-tab,amsmath}
+\usepackage{tikz-cd}
 \usepackage[many]{tcolorbox}
 \usetikzlibrary{shadows.blur}
 \usepackage[spanish]{babel}
@@ -198,6 +199,7 @@
     asi que las restricciones estan bien definidas.
 \end{ejemplo}
 
+\section{Espacio étale}
 Ahora veremos que en cierto sentido cualquier
 gavilla es la gavilla de secciones continuas
 sobre algún espacio.
@@ -426,4 +428,91 @@ naturales entre los funtores.
     $U\in \tau$ definen las componentes 
     de un isomorfismo natural.
 \end{proof}
+
+\section{Igualadores}
+
+Caundo tenemos una pregavilla $\mathcal{F}$
+podemos escribir la condición de ser una
+gavilla en términos de unos morfismos en 
+específicos.
+
+\begin{definicion}{}{}
+    Sea $(X,\tau)$ un espacio topológico,
+    $\mathcal{F}$ una pregavilla sobre $X$,
+    $U\in\tau$ y $\{U_i\mid i\in I\}$ una 
+    cubierta abierta de $U$.
+    Definamos los siguientes morfismos.
+    \begin{align*}%
+        \rho:&\mathcal{F}(U)\rightarrow \prod_{i\in I}\mathcal{F}(U_i)\\
+        &s \mapsto \left(\rho_{U_i}^{U}(s)\right)_{i\in I}\\
+        \sigma:&\prod_{i\in I}\mathcal{F}(U_i)\rightarrow \prod_{(i,j)\in I\times I}\mathcal{F}(U_i\cap U_j)\\
+        &(s_i)_{i\in I} \mapsto \left(\rho_{U_i\cap U_j}^{U_i}(s_i)\right)_{(i,j)\in I \times I}\\
+        \sigma':&\prod_{i\in I}\mathcal{F}(U_i)\rightarrow \prod_{(i,j)\in I\times I}\mathcal{F}(U_i\cap U_j)\\
+        &(s_i)_{i\in I} \mapsto \left(\rho_{U_i\cap U_j}^{U_j}(s_j)\right)_{(i,j)\in I \times I}\\
+    \end{align*}%
+\end{definicion}
+\begin{observacion}{}{}
+    Notemos que con la notación antes dada 
+    la pregavilla $\mathcal{F}$ es una gavilla
+    si y solo si el diagrama:
+    \begin{tikzcd}
+        \mathcal{F}(U) \arrow{r}{\rho}
+        & \prod_{i\in I}\mathcal{F}(U_i)
+        \arrow[shift left]{r}{\sigma}
+        \arrow[shift right]{r}[swap]{\sigma'}
+        & \prod_{(i,j)\in I\times I}\mathcal{F}(U_i\cap U_j)
+    \end{tikzcd}
+    es un igualador.
+\end{observacion}
+\begin{proof}
+    \begin{enumerate}
+        \item[$\implies$)] Si $\mathcal{F}$ es una 
+        gavilla entonces la composición
+        \begin{align*}
+            &\sigma \circ\rho(s)
+            =\sigma\left(\left(\rho_{U_i}^{U}(s)\right)_{i\in I}\right)
+            =\left(\rho_{U_i\cap U_j}^{U_i}(\rho_{U_i}^{U}(s))\right)_{(i,j)\in I\times I}\\
+            &=\left(\rho_{U_i\cap U_j}^{U}(s)\right)_{(i,j)\in I\times I}
+            =\left(\rho_{U_i\cap U_j}^{U_j}(\rho_{U_j}^{U}(s))\right)_{(i,j)\in I\times I}\\
+            &=\sigma'\left(\left(\rho_{U_j}^{U}(s)\right)_{j\in I}\right)
+            =\sigma'\circ\rho(s)
+        \end{align*}
+        Por lo que $\rho$ iguala a $\sigma, \sigma'$. 
+        Además, dada una flecha tal que iguala a $\sigma,\sigma'$
+        digamos $f:A\rightarrow \prod_{i\in I}\mathcal{F}(U_i)$
+        entonces para cada $a\in A$ ocurre que $\{f(a)=(s(a)_i)_{i\in I}\}$ 
+        es una familia de secciones de 
+        la familia $\{U_i\mid i\in I\}$ tales que 
+        $\rho_{U_i\cap U_j}^{U_i}(f(a))=\rho_{U_i\cap U_j}^{U_j}(f(a))$
+        pues son las coordenadas de $\sigma\circ f(a)=\sigma'\circ f(a)$
+        y como $\mathcal{F}$ es gavilla existe una única 
+        $s(a)\in \mathcal{F}(U)$ tal que para cada $i\in I$
+        se tiene que $\rho_{U_i}^{U}(s(a))=s(a)_i$.
+        Podemos definir entonces la función $s:A\rightarrow \mathcal{F}(U)$
+        dada por $s(a)=s(a)$ como arriba la existencia y únicidad garantizan
+        que esta función esta bien definida y es única. Además $\rho\circ s= f$
+        por definición, asi que que el diagrama dicho es un igualador.
+        \item[$\impliedby$)] Si el diagrama es un igualador entonces
+        dada una familia de funciones compatibles $(s_i)_{i\in I}$
+        con $s_i\in \mathcal{F}(U_i)$ entonces podemos dar una flecha 
+        $f:\{*\}\rightarrow \prod_{i\in I}\mathcal{F}(U_i)$ tal que $f(*)=(s_i)_{i\in I}$
+        la compatibilidad nos dice que esta flecha iguala a $\sigma, \sigma'$
+        por lo que existe una única flecha $s:\{*\}\rightarrow \mathcal{F}(U)$
+        tal que $\rho\circ s= f$ llamaremos $s=s(*)$ entonces ocurre que
+        $(s_i)_{i\in I}=f(*)=\rho(s(*))=\rho(s)=(\rho_{U_i}^{U}(s))_{i\in I}$
+        es decir $s\in\mathcal{F}(U)$ es tal que 
+        para cada $i\in I$ se tiene que 
+        $\rho_{U_i}^{U}(s)=s_i$, la unicidad de la flecha 
+        nos dice que esta sección de $\mathcal{F}(U)$ es única, por lo que
+        concluimos que $\mathcal{F}$ es una gavilla.
+    \end{enumerate}
+\end{proof}
+
+Esta condición nos habla del pegado de secciones
+que puede ocurrir en cualquier categoria. Y más aún
+nos dice que $\mathcal{F}(U)$ puede ser visto como 
+el límite del diagrama formado por $\{U_i\cap U_j\mid (i,j)\in I\times I\}$.
+Así que dada una base $\mathcal{B}$ de $X$ y un abierto $U$,
+podemos considerar los elementos de $\mathcal{B}$ junto con sus intersecciones
+y notar que $\mathcal{F}(U)=\lim_{U\supset B\in \mathcal{B}} \mathcal{F}(B)$
 \end{document}
